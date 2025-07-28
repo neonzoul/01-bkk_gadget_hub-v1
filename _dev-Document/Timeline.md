@@ -8,40 +8,57 @@
 
 **Tomorrow, Day 1 (Friday, July 25): Kickoff & Setup**
 
--   `[ ]` **Client Communication:** Respond to Chaiwat's message. Attach the Client Intake Questionnaire and explain its purpose.
--   `[ ]` **Formalize:** Based on his (simulated) returned form, send the official proposal via Fastwork confirming the scope and price.
--   `[ ]` **Set Expectations:** Once the order is placed, send your "Kickoff Confirmation" email. State clearly that you will provide a sample data file for his review on **Monday, August 4th**.
--   `[ ]` **Technical Setup:** Create the project folder, initialize a Python virtual environment (`venv`), and create your initial `requirements.txt` file.
+-   `[x]` **Client Communication:** Respond to Chaiwat's message. Attach the Client Intake Questionnaire and explain its purpose.
+-   `[x]` **Formalize:** Based on his (simulated) returned form, send the official proposal via Fastwork confirming the scope and price.
+-   `[x]` **Set Expectations:** Once the order is placed, send your "Kickoff Confirmation" email. State clearly that you will provide a sample data file for his review on **Monday, August 4th**.
+-   `[x]` **Technical Setup:** Create the project folder, initialize a Python virtual environment (`venv`), and create your initial `requirements.txt` file.
 
-**Day 2 (Monday, July 28): Initial Scraping**
+**Day 2 (Monday, July 28): Initial Scraping & POC Completion**
 
--   `[ ]` **Goal:** Prove you can access and read the target site.
--   `[ ]` **Task:** Write the basic `playwright` script to launch a browser, navigate to ONE of the PowerBuy URLs Chaiwat provided, and save the page's HTML content to a local file.
--   `[ ]` **Analysis:** Examine the saved HTML to identify the CSS selectors for `Product Name` and `SKU`.
+-   `[x]` **Goal:** Prove you can access and read the target site.
+-   `[x]` **Task:** Write the basic `playwright` script to launch a browser, navigate to ONE of the PowerBuy URLs Chaiwat provided, and save the page's HTML content to a local file.
+-   `[x]` **Analysis:** Examine the saved HTML to identify the CSS selectors for `Product Name` and `SKU`.
+-   `[x]` **Major Breakthrough:** Discovered that PowerBuy loads product data via dynamic JSON API calls, not static HTML
+-   `[x]` **POC Success:** Implemented network response interception to capture structured JSON data from `/_next/data/[id]/th/search/iphone.json`
+-   `[x]` **Data Validation:** Successfully extracted Product Name, SKU, and Price from 50+ iPhone products
+-   `[x]` **CSV Export:** Generated `test_collect.csv` with clean, structured data
 
-**Day 3 (Tuesday, July 29): Handling Dynamic Content**
+**Day 3 (Tuesday, July 29): Architecture Implementation & Multi-Product Support**
 
--   `[ ]` **Goal:** Reliably extract data that loads via JavaScript.
--   `[ ]` **Task:** Modify your script to use `page.wait_for_selector()` to explicitly wait for the `Price` and `Stock Status` elements. This is the key step that fixes the problem the previous freelancer failed on.
--   `[ ]` **Validation:** Extract the raw text for all four fields (`Name`, `Price`, `Stock`, `SKU`) from a single page and print them to your console to confirm they are correct.
+-   `[X]` **Git Init:** Commmit Github Init Project Repo | Commit 'hello, world'
+-   `[x]` **Achievement:** POC validates the architecture approach from `architecture.md`
+-   `[x]` **Dynamic Content Mastery:** Proved Playwright + API interception handles JavaScript-heavy sites
+-   `[x]` **Next Task:** Adapt POC for Chaiwat's 20 specific product URLs (individual products vs search results)
+        - **Need to manual find item list**....(for this deliver in 2 weeks and then manual grab )
+        - **after have JSON and then use Producer component to producing filter just query data for outcome update to CSV file**.
+-   `[ ]` **Architecture Alignment:** Using Kiro with current project context. (Kiro can Edit This timeline to relate with real implementation)
 
 **Day 4 (Wednesday, July 30): Data Modeling & Validation**
 
--   `[ ]` **Goal:** Ensure data is clean and correctly formatted.
--   `[ ]` **Task:** Create a `validators.py` file and define a Pydantic `Product` model. It should enforce that `price_thb` is a `float` and the other fields are `str`.
--   `[ ]` **Implementation:** In your main script, pass the raw extracted data into this Pydantic model. Handle the necessary cleaning (e.g., removing "฿", commas, and converting the price to a float) before validation.
+-   `[ ]` **Goal:** Ensure data is clean and correctly formatted according to architecture.
+-   `[ ]` **Priority Task:** Implement Pydantic models as specified in `architecture.md`
+-   `[ ]` **Task:** Create `validators/schemas.py` with Product model enforcing `price_thb` as `float` and other fields as `str`
+-   `[ ]` **Implementation:** Integrate POC learnings - handle JSON data structure validation instead of raw HTML parsing
+-   `[ ]` **Validation:** Apply Pydantic models to POC data to ensure type safety and data cleaning
 
-**Day 5 (Thursday, July 31): Scaling the Scraper**
+**Day 5 (Thursday, July 31): Scaling & Individual Product Pages**
 
--   `[ ]` **Goal:** Make the script work for multiple pages.
--   `[ ]` **Task:** Convert your script to read a list of 5-10 URLs from a simple text file.
--   `[ ]` **Task:** Loop through the URLs, scrape the data for each, validate it with your Pydantic model, and store the resulting objects in a list.
+-   `[ ]` **Goal:** Adapt POC for individual product URLs (Chaiwat's requirement)
+-   `[ ]` **Challenge:** POC works for search results - need to handle individual product page structure
+-   `[ ]` **Task:** Investigate if individual product pages also use dynamic JSON loading
+-   `[ ]` **Implementation:** Create URL list handler for Chaiwat's 20 specific product links
+-   `[ ]` **Testing:** Verify data extraction works across different product types
 
-**Day 6 (Friday, August 1): Final Polish & Milestone Prep**
+**Day 6 (Friday, August 1): Modular Architecture & Error Handling**
 
--   `[ ]` **Goal:** Prepare for the client check-in.
--   `[ ]` **Task:** Add error handling (`try...except`) to your loop so that if one URL fails, the script continues with the others.
--   `[ ]` **Task:** Use the `pandas` library to export your list of validated data objects to a CSV file named `BKK_Gadget_Hub_Sample.csv`. Review the file to ensure it's perfect.
+-   `[ ]` **Goal:** Implement the full architecture from `architecture.md`
+-   `[ ]` **Task:** Refactor POC into modular structure:
+    -   `scrapers/powerbuy_scraper.py` - Core scraping logic
+    -   `parsers/` - JSON data extraction functions
+    -   `validators/` - Pydantic models
+    -   `main.py` - Orchestration script
+-   `[ ]` **Error Handling:** Add `try...except` blocks for production reliability
+-   `[ ]` **CSV Enhancement:** Implement Pandas for final data export as specified in architecture
 
 ---
 
