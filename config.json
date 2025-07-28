@@ -1,0 +1,31 @@
+{
+  "scraping": {
+    "base_url": "https://www.powerbuy.co.th",
+    "search_delay_min": 2.0,
+    "search_delay_max": 5.0,
+    "request_timeout": 30,
+    "max_retries": 3,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  },
+  "processing": {
+    "input_directory": "raw_data/search_results",
+    "individual_products_dir": "raw_data/individual_products",
+    "processed_directory": "raw_data/processed",
+    "output_directory": "output",
+    "csv_encoding": "utf-8",
+    "date_format": "%Y-%m-%d"
+  },
+  "system": {
+    "log_level": "INFO",
+    "log_file": "logs/scraper.log",
+    "data_retention_days": 30,
+    "enable_debug": false
+  },
+  "search_terms": [
+    "iPhone 15",
+    "Samsung Galaxy S24",
+    "iPad Pro",
+    "MacBook Air",
+    "AirPods Pro"
+  ]
+}
