@@ -31,23 +31,23 @@
 -   `[x]` **Next Task:** Adapt POC for Chaiwat's 20 specific product URLs (individual products vs search results)
         - **Need to manual find item list**....(for this deliver in 2 weeks and then manual grab )
         - **after have JSON and then use Producer component to producing filter just query data for outcome update to CSV file**.
--   `[ ]` **Architecture Alignment:** Using Kiro with current project context. (Kiro can Edit This timeline to relate with real implementation)
+-   `[x]` **Architecture Alignment:** Created spec with Kiro - hybrid approach with manual collection + automated processing
 
-**Day 4 (Wednesday, July 30): Data Modeling & Validation**
+**Day 4 (Wednesday, July 30): Data Modeling & Producer Component Setup**
 
--   `[ ]` **Goal:** Ensure data is clean and correctly formatted according to architecture.
--   `[ ]` **Priority Task:** Implement Pydantic models as specified in `architecture.md`
--   `[ ]` **Task:** Create `validators/schemas.py` with Product model enforcing `price_thb` as `float` and other fields as `str`
--   `[ ]` **Implementation:** Integrate POC learnings - handle JSON data structure validation instead of raw HTML parsing
--   `[ ]` **Validation:** Apply Pydantic models to POC data to ensure type safety and data cleaning
+-   `[ ]` **Goal:** Implement core data models and producer component foundation
+-   `[ ]` **Priority Task:** Create Pydantic models for ProductData, RawProductData, and CollectionSummary
+-   `[ ]` **Task:** Set up project structure with src/, raw_data/, and output directories
+-   `[ ]` **Implementation:** Build DataProducer class to process raw JSON files into clean CSV
+-   `[ ]` **Validation:** Test data models with sample JSON data from POC
 
-**Day 5 (Thursday, July 31): Scaling & Individual Product Pages**
+**Day 5 (Thursday, July 31): Enhanced Manual Collection Tool**
 
--   `[ ]` **Goal:** Adapt POC for individual product URLs (Chaiwat's requirement)
--   `[ ]` **Challenge:** POC works for search results - need to handle individual product page structure
--   `[ ]` **Task:** Investigate if individual product pages also use dynamic JSON loading
--   `[ ]` **Implementation:** Create URL list handler for Chaiwat's 20 specific product links
--   `[ ]` **Testing:** Verify data extraction works across different product types
+-   `[ ]` **Goal:** Enhance POC scraper for organized manual data collection
+-   `[ ]` **Task:** Create ManualCollector class with session management and organized storage
+-   `[ ]` **Implementation:** Add support for multiple search terms and automatic JSON file organization
+-   `[ ]` **Testing:** Test manual collection process with sample search terms from 20urls.txt
+-   `[ ]` **Output:** Generate organized raw JSON files for producer component processing
 
 **Day 6 (Friday, August 1): Modular Architecture & Error Handling**
 
@@ -68,11 +68,11 @@
 
 -   `[ ]` **Client Communication:** Send the "Early Milestone Delivery" email to Chaiwat. Attach the `BKK_Gadget_Hub_Sample.csv` and ask for his confirmation that the data and format are correct.
 
-**Day 8 (Tuesday, August 5): Full Execution**
+**Day 8 (Tuesday, August 5): Full Data Collection & Processing**
 
--   `[ ]` **Goal:** Scrape the entire dataset.
--   `[ ]` **Task:** (After Chaiwat's simulated "Looks great!" reply) Update your URL list to include all 20 product links.
--   `[ ]` **Task:** Run the full scrape and generate the complete CSV file.
+-   `[ ]` **Goal:** Collect complete dataset using manual collection tool.
+-   `[ ]` **Task:** (After Chaiwat's simulated "Looks great!" reply) Use enhanced manual collector to gather data from all 20 search terms.
+-   `[ ]` **Task:** Run producer component to process all collected JSON data into final CSV file.
 
 **Day 9 (Wednesday, August 6): Quality Assurance**
 
