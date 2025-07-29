@@ -1,0 +1,244 @@
+{
+  "products": [
+    {
+      "sku": "301137",
+      "name": "APPLE iPhone 16 Pro Max (512GB, Desert Titanium)",
+      "price": 49700
+    },
+    {
+      "sku": "301134",
+      "name": "APPLE iPhone 16 Pro Max (256GB, White Titanium)",
+      "price": 40900
+    },
+    {
+      "sku": "292449",
+      "name": "APPLE iPhone 15 (128GB, Green)",
+      "price": 20700
+    },
+    {
+      "sku": "292475",
+      "name": "APPLE iPhone 15 Plus (512GB, Yellow)",
+      "price": 50900
+    },
+    {
+      "sku": "292490",
+      "name": "APPLE iPhone 15 Pro (1TB, Blue Titanium)",
+      "price": 46794
+    },
+    {
+      "sku": "292491",
+      "name": "APPLE iPhone 15 Pro (1TB, White Titanium)",
+      "price": 46794
+    },
+    {
+      "sku": "292492",
+      "name": "APPLE iPhone 15 Pro (1TB, Black Titanium)",
+      "price": 46794
+    },
+    {
+      "sku": "292496",
+      "name": "APPLE iPhone 15 Pro (256GB, Black Titanium)",
+      "price": 33794
+    },
+    {
+      "sku": "292497",
+      "name": "APPLE iPhone 15 Pro (512GB, Natural Titanium)",
+      "price": 41794
+    },
+    {
+      "sku": "292518",
+      "name": "APPLE iPhone 15 Pro Max (512GB, Blue Titanium)",
+      "price": 42394
+    },
+    {
+      "sku": "296775",
+      "name": "APPLE iPhone 13 (128GB, Midnight)",
+      "price": 15500
+    },
+    {
+      "sku": "296776",
+      "name": "APPLE iPhone 13 (128GB, Starlight)",
+      "price": 15500
+    },
+    {
+      "sku": "296782",
+      "name": "APPLE iPhone 15 Plus (128GB, Black)",
+      "price": 29900
+    },
+    {
+      "sku": "299107",
+      "name": "APPLE iPhone 14 (128GB, Midnight)",
+      "price": 17900
+    },
+    {
+      "sku": "270636",
+      "name": "APPLE iPhone 13 (128GB, Midnight)",
+      "price": 15500
+    },
+    {
+      "sku": "301117",
+      "name": "APPLE iPhone 16 Pro (128GB, Desert Titanium)",
+      "price": 33800
+    },
+    {
+      "sku": "301135",
+      "name": "APPLE iPhone 16 Pro Max (256GB, Black Titanium)",
+      "price": 40900
+    },
+    {
+      "sku": "301121",
+      "name": "APPLE iPhone 16 Pro (256GB, Desert Titanium)",
+      "price": 37800
+    },
+    {
+      "sku": "301026",
+      "name": "APPLE iPhone 16 Plus (128GB, Ultramarine)",
+      "price": 31900
+    },
+    {
+      "sku": "288227",
+      "name": "APPLE iPhone 14 Plus (512GB, Yellow)",
+      "price": 45900
+    },
+    {
+      "sku": "301090",
+      "name": "APPLE iPhone 16 (128GB, Teal)",
+      "price": 26900
+    },
+    {
+      "sku": "304039",
+      "name": "APPLE iPhone 16e (128GB, Black)",
+      "price": 22400
+    },
+    {
+      "sku": "KS056575",
+      "name": "ZAGG Crystal Palace Snap เคสสำหรับ iPhone 16e (สีใส)",
+      "price": 1090
+    },
+    {
+      "sku": "281725",
+      "name": "HEAL Glossy Series เคสใสพร้อม MagSafe สำหรับ iPhone 14 Pro Max (สีฟ้า)",
+      "price": 790
+    },
+    {
+      "sku": "246769",
+      "name": "MOMAX ที่ชาร์จไร้สาย (5000 mAh, สีดำ) รุ่น IP85D",
+      "price": 694
+    },
+    {
+      "sku": "261976",
+      "name": "HEAL เคสสำหรับ iPhone 12 Mini (สีใส) รุ่น CASE IPHONE 12 CLEAR",
+      "price": 144
+    },
+    {
+      "sku": "263528",
+      "name": "APPLE iPhone 11 (128GB, Black)",
+      "price": 21500
+    },
+    {
+      "sku": "304079",
+      "name": "ZAGG Crystal Palace Snap เคสสำหรับ iPhone 16e (สีใส) รุ่น KS056575",
+      "price": 1090
+    },
+    {
+      "sku": "304034",
+      "name": "APPLE iPhone 16e (128GB, White)",
+      "price": 22400
+    },
+    {
+      "sku": "304031",
+      "name": "APPLE iPhone 16e (128GB, Black)",
+      "price": 22400
+    },
+    {
+      "sku": "301029",
+      "name": "APPLE iPhone 16 Plus (128GB, Teal)",
+      "price": 31900
+    },
+    {
+      "sku": "301011",
+      "name": "APPLE iPhone 16 (128GB, Ultramarine)",
+      "price": 26900
+    },
+    {
+      "sku": "301014",
+      "name": "APPLE iPhone 16 (128GB, Teal)",
+      "price": 26900
+    },
+    {
+      "sku": "301089",
+      "name": "APPLE iPhone 16 (128GB, Pink)",
+      "price": 26900
+    },
+    {
+      "sku": "301013",
+      "name": "APPLE iPhone 16 (128GB, Pink)",
+      "price": 26900
+    },
+    {
+      "sku": "301088",
+      "name": "APPLE iPhone 16 (128GB, Black)",
+      "price": 26900
+    },
+    {
+      "sku": "301064",
+      "name": "APPLE iPhone 16 Pro Max (1TB, Natural Titanium)",
+      "price": 57700
+    },
+    {
+      "sku": "301138",
+      "name": "APPLE iPhone 16 Pro Max (512GB, White Titanium)",
+      "price": 49700
+    },
+    {
+      "sku": "301060",
+      "name": "APPLE iPhone 16 Pro Max (512GB, Natural Titanium)",
+      "price": 49700
+    },
+    {
+      "sku": "301139",
+      "name": "APPLE iPhone 16 Pro Max (512GB, Black Titanium)",
+      "price": 49700
+    },
+    {
+      "sku": "301122",
+      "name": "APPLE iPhone 16 Pro (256GB, White Titanium)",
+      "price": 37800
+    },
+    {
+      "sku": "301120",
+      "name": "APPLE iPhone 16 Pro (256GB, Natural Titanium)",
+      "price": 37800
+    },
+    {
+      "sku": "301045",
+      "name": "APPLE iPhone 16 Pro (256GB, Desert Titanium)",
+      "price": 37800
+    },
+    {
+      "sku": "301123",
+      "name": "APPLE iPhone 16 Pro (256GB, Black Titanium)",
+      "price": 37800
+    },
+    {
+      "sku": "301047",
+      "name": "APPLE iPhone 16 Pro (256GB, Black Titanium)",
+      "price": 37800
+    },
+    {
+      "sku": "301132",
+      "name": "APPLE iPhone 16 Pro Max (256GB, Natural Titanium)",
+      "price": 40900
+    },
+    {
+      "sku": "281867",
+      "name": "APPLE iPhone 14 (128GB, Starlight)",
+      "price": 17900
+    },
+    {
+      "sku": "293047",
+      "name": "APPLE iPhone 15 Pro Silicone Case with MagSafe (Cypress)",
+      "price": 1990
+    }
+  ]
+}

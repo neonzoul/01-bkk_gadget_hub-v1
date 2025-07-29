@@ -1,0 +1,19 @@
+{
+    "products": [
+        {
+            "sku": "TEST001",
+            "name": "Samsung Galaxy S24 Ultra (256GB, Titanium Black)",
+            "price": 42900
+        },
+        {
+            "sku": "TEST002",
+            "name": "Samsung Galaxy S24 (128GB, Marble Gray)",
+            "price": 25900
+        },
+        {
+            "sku": "TEST003",
+            "name": "Samsung Galaxy Tab S9 (128GB, Graphite)",
+            "price": 28900
+        }
+    ]
+}
