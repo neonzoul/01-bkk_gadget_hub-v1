@@ -25,7 +25,7 @@ class ProductData(BaseModel):
     name: str
     sku: str
     price_thb: float
-    stock_status: str
+    stock_status: Optional[str] = None
     
     @validator('price_thb')
     def validate_price(cls, v):
