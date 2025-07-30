@@ -9,13 +9,77 @@ import os
 import json
 import re
 import time
+import logging
 from datetime import datetime
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Callable
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 from ..validators.models import CollectionSummary
+
+
+class CollectionSession:
+    """Manages collection session state and tracking"""
+    
+    def __init__(self):
+        self.session_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.start_time = datetime.now()
+        self.end_time = None
+        self.search_terms_processed = []
+        self.search_terms_failed = []
+        self.total_products_found = 0
+        self.files_created = []
+        self.errors = []
+        self.current_search_term = None
+        self.progress_callback = None
+        
+    def start_search_term(self, search_term: str):
+        """Mark the start of processing a search term"""
+        self.current_search_term = search_term
+        if self.progress_callback:
+            self.progress_callback(f"Starting collection for: {search_term}")
+    
+    def complete_search_term(self, search_term: str, products_found: int, file_path: str = None):
+        """Mark successful completion of a search term"""
+        self.search_terms_processed.append(search_term)
+        self.total_products_found += products_found
+        if file_path:
+            self.files_created.append(file_path)
+        if self.progress_callback:
+            self.progress_callback(f"Completed {search_term}: {products_found} products found")
+    
+    def fail_search_term(self, search_term: str, error: str):
+        """Mark failure of a search term"""
+        self.search_terms_failed.append(search_term)
+        self.errors.append(f"Search term '{search_term}': {error}")
+        if self.progress_callback:
+            self.progress_callback(f"Failed {search_term}: {error}")
+    
+    def add_error(self, error: str):
+        """Add a general error to the session"""
+        self.errors.append(error)
+        if self.progress_callback:
+            self.progress_callback(f"Error: {error}")
+    
+    def end_session(self):
+        """Mark the end of the collection session"""
+        self.end_time = datetime.now()
+        if self.progress_callback:
+            duration = (self.end_time - self.start_time).total_seconds()
+            self.progress_callback(f"Session completed in {duration:.1f} seconds")
+    
+    def get_duration(self) -> float:
+        """Get session duration in seconds"""
+        end_time = self.end_time or datetime.now()
+        return (end_time - self.start_time).total_seconds()
+    
+    def get_success_rate(self) -> float:
+        """Calculate success rate as percentage"""
+        total_attempts = len(self.search_terms_processed) + len(self.search_terms_failed)
+        if total_attempts == 0:
+            return 0.0
+        return (len(self.search_terms_processed) / total_attempts) * 100
 
 
 class ManualCollector:
@@ -25,16 +89,18 @@ class ManualCollector:
     Refactored from the original POC scraper to support:
     - Multiple search terms processing
     - Organized JSON file storage with timestamps
-    - Metadata tracking and session management
-    - Error handling and recovery
+    - Session management with progress tracking
+    - Error handling and recovery mechanisms
+    - Detailed logging and reporting
     """
     
-    def __init__(self, config: Dict[str, Any]):
+    def __init__(self, config: Dict[str, Any], progress_callback: Optional[Callable[[str], None]] = None):
         """
         Initialize the ManualCollector with configuration.
         
         Args:
             config: Configuration dictionary containing scraping settings
+            progress_callback: Optional callback function for progress updates
         """
         self.config = config
         self.base_url = config.get('scraping', {}).get('base_url', 'https://www.powerbuy.co.th')
@@ -49,18 +115,45 @@ class ManualCollector:
         self.search_results_dir.mkdir(parents=True, exist_ok=True)
         self.individual_products_dir.mkdir(parents=True, exist_ok=True)
         
-        # Session tracking
-        self.session_start_time = None
-        self.collected_data = []
-        self.errors = []
-        self.files_created = []
+        # Session management
+        self.current_session = None
+        self.progress_callback = progress_callback
+        
+        # Error recovery settings
+        self.max_retries = config.get('scraping', {}).get('max_retries', 3)
+        self.retry_delay = config.get('scraping', {}).get('retry_delay', 5)
         
         # Browser context directory
         self.user_data_dir = Path("user_data")
         
+        # Setup logging
+        self._setup_logging()
+    
+    def _setup_logging(self):
+        """Setup logging for the collector"""
+        log_dir = Path("logs")
+        log_dir.mkdir(exist_ok=True)
+        
+        # Create session-specific log file
+        log_filename = f"collection_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+        log_path = log_dir / log_filename
+        
+        # Configure logging
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler(log_path, encoding='utf-8'),
+                logging.StreamHandler()  # Also log to console
+            ]
+        )
+        
+        self.logger = logging.getLogger(__name__)
+        self.logger.info(f"ManualCollector initialized with log file: {log_path}")
+    
     def collect_search_data(self, search_terms: List[str]) -> Dict[str, str]:
         """
-        Collect product data for multiple search terms.
+        Collect product data for multiple search terms with session management.
         
         Args:
             search_terms: List of search terms to process
@@ -68,41 +161,158 @@ class ManualCollector:
         Returns:
             Dictionary mapping search terms to their result file paths
         """
-        self.session_start_time = datetime.now()
+        # Initialize new collection session
+        self.current_session = CollectionSession()
+        self.current_session.progress_callback = self.progress_callback
+        
+        self.logger.info(f"Starting collection session {self.current_session.session_id} with {len(search_terms)} search terms")
+        
+        if self.progress_callback:
+            self.progress_callback(f"Starting collection session with {len(search_terms)} search terms")
+        
         results = {}
         
         with sync_playwright() as playwright:
-            context = self._setup_browser_context(playwright)
-            page = context.pages[0] if context.pages else context.new_page()
-            
+            context = None
             try:
+                context = self._setup_browser_context(playwright)
+                page = context.pages[0] if context.pages else context.new_page()
+                
                 # Navigate to homepage and handle initial setup
                 self._navigate_to_homepage(page)
                 
-                for search_term in search_terms:
+                for i, search_term in enumerate(search_terms, 1):
+                    self.current_session.start_search_term(search_term)
+                    self.logger.info(f"Processing search term {i}/{len(search_terms)}: {search_term}")
+                    
                     try:
-                        print(f"Processing search term: {search_term}")
-                        file_path = self._collect_single_search_term(page, search_term)
+                        file_path = self._collect_single_search_term_with_retry(page, search_term)
                         if file_path:
                             results[search_term] = file_path
-                            print(f"Successfully collected data for: {search_term}")
+                            # Count products in the file to update session
+                            product_count = self._count_products_in_file(file_path)
+                            self.current_session.complete_search_term(search_term, product_count, file_path)
+                            self.logger.info(f"Successfully collected {product_count} products for: {search_term}")
                         else:
-                            self.errors.append(f"No data collected for search term: {search_term}")
+                            error_msg = f"No data collected for search term: {search_term}"
+                            self.current_session.fail_search_term(search_term, error_msg)
+                            self.logger.warning(error_msg)
                             
                     except Exception as e:
-                        error_msg = f"Error collecting data for '{search_term}': {str(e)}"
-                        self.errors.append(error_msg)
-                        print(f"ERROR: {error_msg}")
+                        error_msg = f"Failed to collect data for '{search_term}': {str(e)}"
+                        self.current_session.fail_search_term(search_term, error_msg)
+                        self.logger.error(error_msg)
                         continue
                         
+            except Exception as e:
+                error_msg = f"Critical error during collection session: {str(e)}"
+                self.current_session.add_error(error_msg)
+                self.logger.error(error_msg)
+                
             finally:
-                context.close()
+                if context:
+                    context.close()
+                
+                # End session and log summary
+                self.current_session.end_session()
+                self._log_session_summary()
                 
         return results
     
+    def _collect_single_search_term_with_retry(self, page, search_term: str) -> Optional[str]:
+        """
+        Collect data for a single search term with retry mechanism.
+        
+        Args:
+            page: Playwright page object
+            search_term: Search term to process
+            
+        Returns:
+            Path to the saved JSON file, or None if all retries failed
+        """
+        last_error = None
+        
+        for attempt in range(self.max_retries):
+            try:
+                if attempt > 0:
+                    self.logger.info(f"Retry attempt {attempt + 1}/{self.max_retries} for search term: {search_term}")
+                    if self.progress_callback:
+                        self.progress_callback(f"Retrying {search_term} (attempt {attempt + 1}/{self.max_retries})")
+                    time.sleep(self.retry_delay)
+                
+                return self._collect_single_search_term(page, search_term)
+                
+            except Exception as e:
+                last_error = e
+                self.logger.warning(f"Attempt {attempt + 1} failed for '{search_term}': {str(e)}")
+                
+                # If this is not the last attempt, continue to retry
+                if attempt < self.max_retries - 1:
+                    continue
+                else:
+                    # All retries exhausted
+                    self.logger.error(f"All {self.max_retries} attempts failed for '{search_term}': {str(last_error)}")
+                    raise last_error
+        
+        return None
+    
+    def _count_products_in_file(self, file_path: str) -> int:
+        """
+        Count the number of products in a saved JSON file.
+        
+        Args:
+            file_path: Path to the JSON file
+            
+        Returns:
+            Number of products found in the file
+        """
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                products = data.get('products', [])
+                return len(products)
+        except Exception as e:
+            self.logger.warning(f"Could not count products in {file_path}: {str(e)}")
+            return 0
+    
+    def _log_session_summary(self):
+        """Log a comprehensive session summary"""
+        session = self.current_session
+        
+        self.logger.info("=" * 60)
+        self.logger.info("COLLECTION SESSION SUMMARY")
+        self.logger.info("=" * 60)
+        self.logger.info(f"Session ID: {session.session_id}")
+        self.logger.info(f"Duration: {session.get_duration():.1f} seconds")
+        self.logger.info(f"Success Rate: {session.get_success_rate():.1f}%")
+        self.logger.info(f"Search Terms Processed: {len(session.search_terms_processed)}")
+        self.logger.info(f"Search Terms Failed: {len(session.search_terms_failed)}")
+        self.logger.info(f"Total Products Found: {session.total_products_found}")
+        self.logger.info(f"Files Created: {len(session.files_created)}")
+        self.logger.info(f"Errors Encountered: {len(session.errors)}")
+        
+        if session.search_terms_processed:
+            self.logger.info(f"Successful Terms: {', '.join(session.search_terms_processed)}")
+        
+        if session.search_terms_failed:
+            self.logger.info(f"Failed Terms: {', '.join(session.search_terms_failed)}")
+        
+        if session.errors:
+            self.logger.info("Errors:")
+            for error in session.errors:
+                self.logger.info(f"  - {error}")
+        
+        self.logger.info("=" * 60)
+        
+        # Also report to progress callback
+        if self.progress_callback:
+            self.progress_callback(f"Session completed: {len(session.search_terms_processed)} successful, "
+                                 f"{len(session.search_terms_failed)} failed, "
+                                 f"{session.total_products_found} products collected")
+    
     def collect_individual_product(self, product_url: str) -> Dict:
         """
-        Collect data for a single product URL.
+        Collect data for a single product URL with error handling and logging.
         
         Args:
             product_url: Direct URL to a product page
@@ -110,11 +320,17 @@ class ManualCollector:
         Returns:
             Dictionary containing product data
         """
+        self.logger.info(f"Starting individual product collection for: {product_url}")
+        
+        if self.progress_callback:
+            self.progress_callback(f"Collecting individual product: {product_url}")
+        
         with sync_playwright() as playwright:
-            context = self._setup_browser_context(playwright)
-            page = context.pages[0] if context.pages else context.new_page()
-            
+            context = None
             try:
+                context = self._setup_browser_context(playwright)
+                page = context.pages[0] if context.pages else context.new_page()
+                
                 product_data = {}
                 
                 # Set up response handler for API interception
@@ -123,12 +339,14 @@ class ManualCollector:
                         try:
                             data = response.json()
                             product_data.update(data)
-                        except json.JSONDecodeError:
-                            pass
+                            self.logger.debug(f"Intercepted product data from: {response.url}")
+                        except json.JSONDecodeError as e:
+                            self.logger.warning(f"Failed to decode JSON from {response.url}: {str(e)}")
                 
                 page.on("response", handle_response)
                 
                 # Navigate to product page
+                self.logger.info(f"Navigating to product page: {product_url}")
                 page.goto(product_url, timeout=60000)
                 page.wait_for_load_state("networkidle", timeout=30000)
                 time.sleep(3)
@@ -141,11 +359,28 @@ class ManualCollector:
                     file_path = self.individual_products_dir / filename
                     
                     self.save_raw_data(product_data, str(file_path))
+                    self.logger.info(f"Successfully collected individual product data: {filename}")
+                    
+                    if self.progress_callback:
+                        self.progress_callback(f"Successfully collected product: {product_id}")
+                else:
+                    error_msg = f"No product data found for URL: {product_url}"
+                    self.logger.warning(error_msg)
+                    if self.current_session:
+                        self.current_session.add_error(error_msg)
                     
                 return product_data
                 
+            except Exception as e:
+                error_msg = f"Error collecting individual product from {product_url}: {str(e)}"
+                self.logger.error(error_msg)
+                if self.current_session:
+                    self.current_session.add_error(error_msg)
+                raise
+                
             finally:
-                context.close()
+                if context:
+                    context.close()
     
     def save_raw_data(self, data: Dict, filename: str) -> None:
         """
@@ -159,13 +394,23 @@ class ManualCollector:
             with open(filename, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
             
-            self.files_created.append(filename)
-            print(f"Saved data to: {filename}")
+            # Update session tracking if available
+            if self.current_session:
+                self.current_session.files_created.append(filename)
+            
+            self.logger.info(f"Saved data to: {filename}")
+            if self.progress_callback:
+                self.progress_callback(f"Saved data to: {os.path.basename(filename)}")
             
         except Exception as e:
             error_msg = f"Error saving data to {filename}: {str(e)}"
-            self.errors.append(error_msg)
-            print(f"ERROR: {error_msg}")
+            
+            # Update session tracking if available
+            if self.current_session:
+                self.current_session.add_error(error_msg)
+            
+            self.logger.error(error_msg)
+            raise  # Re-raise to allow caller to handle
     
     def get_collection_summary(self) -> CollectionSummary:
         """
@@ -174,13 +419,50 @@ class ManualCollector:
         Returns:
             CollectionSummary object with session details
         """
+        if not self.current_session:
+            # Return empty summary if no session exists
+            return CollectionSummary(
+                search_terms_processed=[],
+                total_products_found=0,
+                files_created=[],
+                errors=[],
+                collection_time=datetime.now()
+            )
+        
+        session = self.current_session
         return CollectionSummary(
-            search_terms_processed=[term for term in self.collected_data],
-            total_products_found=len(self.collected_data),
-            files_created=self.files_created,
-            errors=self.errors,
-            collection_time=self.session_start_time or datetime.now()
+            search_terms_processed=session.search_terms_processed,
+            total_products_found=session.total_products_found,
+            files_created=session.files_created,
+            errors=session.errors,
+            collection_time=session.start_time
         )
+    
+    def get_session_status(self) -> Dict[str, Any]:
+        """
+        Get detailed session status information.
+        
+        Returns:
+            Dictionary with comprehensive session status
+        """
+        if not self.current_session:
+            return {"status": "no_active_session"}
+        
+        session = self.current_session
+        return {
+            "session_id": session.session_id,
+            "status": "completed" if session.end_time else "active",
+            "start_time": session.start_time.isoformat(),
+            "end_time": session.end_time.isoformat() if session.end_time else None,
+            "duration_seconds": session.get_duration(),
+            "current_search_term": session.current_search_term,
+            "search_terms_processed": session.search_terms_processed,
+            "search_terms_failed": session.search_terms_failed,
+            "total_products_found": session.total_products_found,
+            "files_created": session.files_created,
+            "error_count": len(session.errors),
+            "success_rate": session.get_success_rate()
+        }
     
     def _setup_browser_context(self, playwright):
         """Set up browser context with anti-detection measures."""
@@ -209,7 +491,7 @@ class ManualCollector:
     
     def _collect_single_search_term(self, page, search_term: str) -> Optional[str]:
         """
-        Collect data for a single search term.
+        Collect data for a single search term with enhanced error handling.
         
         Args:
             page: Playwright page object
@@ -219,9 +501,11 @@ class ManualCollector:
             Path to the saved JSON file, or None if collection failed
         """
         product_data_found = []
+        api_responses_received = 0
         
         # Set up response handler for API interception
         def handle_response(response):
+            nonlocal api_responses_received
             # Look for PowerBuy search API endpoints
             if re.search(r'/_next/data/[a-zA-Z0-9_-]+/th/search/.*\.json', response.url):
                 try:
@@ -229,36 +513,63 @@ class ManualCollector:
                     products = data.get('pageProps', {}).get('productListData', {}).get('products', [])
                     if products:
                         product_data_found.extend(products)
-                        print(f"Intercepted {len(products)} products from: {response.url}")
-                except json.JSONDecodeError:
-                    print(f"Could not decode JSON from: {response.url}")
+                        api_responses_received += 1
+                        self.logger.debug(f"Intercepted {len(products)} products from: {response.url}")
+                        if self.progress_callback:
+                            self.progress_callback(f"Found {len(products)} products for {search_term}")
+                except json.JSONDecodeError as e:
+                    self.logger.warning(f"Could not decode JSON from {response.url}: {str(e)}")
                 except Exception as e:
-                    print(f"Error processing response from {response.url}: {e}")
+                    self.logger.error(f"Error processing response from {response.url}: {str(e)}")
         
         page.on("response", handle_response)
         
         try:
             # Find and use search input
+            self.logger.info(f"Looking for search element for term: {search_term}")
             search_element = self._find_search_element(page)
             if not search_element:
-                raise Exception("Search input element not found")
+                raise Exception("Search input element not found on page")
             
-            print(f"Searching for: {search_term}")
+            self.logger.info(f"Performing search for: {search_term}")
+            if self.progress_callback:
+                self.progress_callback(f"Searching for: {search_term}")
+            
+            # Clear existing content and enter search term
+            search_element.click()
+            search_element.fill("")  # Clear existing content
             search_element.fill(search_term)
             search_element.press("Enter")
             
-            # Wait for search results page
-            page.wait_for_url(f"{self.base_url}/search/{search_term}", timeout=60000)
-            print(f"Navigated to search results: {page.url}")
+            # Wait for search results page with more flexible URL matching
+            expected_url_pattern = f"{self.base_url}/search/"
+            try:
+                page.wait_for_url(lambda url: expected_url_pattern in url, timeout=60000)
+                self.logger.info(f"Navigated to search results: {page.url}")
+            except PlaywrightTimeoutError:
+                # Try alternative approach - check if we're on a search results page
+                current_url = page.url
+                if "search" not in current_url.lower():
+                    raise Exception(f"Failed to navigate to search results page. Current URL: {current_url}")
+                self.logger.warning(f"URL pattern didn't match exactly, but appears to be on search page: {current_url}")
             
-            # Wait for API responses
+            # Wait for API responses with progress updates
+            self.logger.info("Waiting for API responses...")
+            if self.progress_callback:
+                self.progress_callback(f"Loading results for {search_term}...")
+            
             page.wait_for_load_state("networkidle", timeout=30000)
-            time.sleep(5)  # Additional wait for API responses
+            
+            # Additional wait with progress updates
+            for i in range(5):
+                time.sleep(1)
+                if self.progress_callback and i % 2 == 0:
+                    self.progress_callback(f"Collecting data for {search_term}... ({i+1}/5)")
             
             if product_data_found:
                 # Save collected data with timestamp
                 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-                filename = f"{search_term.replace(' ', '_')}_{timestamp}.json"
+                filename = f"{search_term.replace(' ', '_').replace('/', '_')}_{timestamp}.json"
                 file_path = self.search_results_dir / filename
                 
                 # Prepare data with metadata
@@ -266,27 +577,29 @@ class ManualCollector:
                     "search_term": search_term,
                     "collection_timestamp": timestamp,
                     "total_products": len(product_data_found),
+                    "api_responses_received": api_responses_received,
                     "products": product_data_found,
                     "metadata": {
                         "url": page.url,
                         "user_agent": self.user_agent,
-                        "collection_method": "API_interception"
+                        "collection_method": "API_interception",
+                        "session_id": self.current_session.session_id if self.current_session else None
                     }
                 }
                 
                 self.save_raw_data(collection_data, str(file_path))
-                self.collected_data.append(search_term)
+                self.logger.info(f"Successfully saved {len(product_data_found)} products for '{search_term}' to {filename}")
                 
                 return str(file_path)
             else:
-                print(f"No product data found for: {search_term}")
+                error_msg = f"No product data found for search term: {search_term}"
+                self.logger.warning(error_msg)
                 return None
                 
         except Exception as e:
             error_msg = f"Error during search for '{search_term}': {str(e)}"
-            self.errors.append(error_msg)
-            print(f"ERROR: {error_msg}")
-            return None
+            self.logger.error(error_msg)
+            raise  # Re-raise to allow retry mechanism to handle
     
     def _find_search_element(self, page):
         """Find the search input element using multiple selectors."""

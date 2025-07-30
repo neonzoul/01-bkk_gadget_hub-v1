@@ -1,0 +1,33 @@
+2025-07-30 14:16:14,563 - INFO - ManualCollector initialized with log file: logs\collection_20250730_141614.log
+2025-07-30 14:16:14,564 - INFO - Starting collection session 20250730_141614 with 2 search terms
+2025-07-30 14:16:31,987 - INFO - Processing search term 1/2: iphone
+2025-07-30 14:16:31,988 - INFO - Looking for search element for term: iphone
+2025-07-30 14:16:31,992 - INFO - Performing search for: iphone
+2025-07-30 14:16:32,110 - INFO - Navigated to search results: https://www.powerbuy.co.th/search/iphone
+2025-07-30 14:16:32,110 - INFO - Waiting for API responses...
+2025-07-30 14:16:37,885 - WARNING - No product data found for search term: iphone
+2025-07-30 14:16:37,885 - WARNING - No data collected for search term: iphone
+2025-07-30 14:16:37,886 - INFO - Processing search term 2/2: samsung
+2025-07-30 14:16:37,886 - INFO - Looking for search element for term: samsung
+2025-07-30 14:16:37,893 - INFO - Performing search for: samsung
+2025-07-30 14:16:38,014 - INFO - Navigated to search results: https://www.powerbuy.co.th/search/iphone
+2025-07-30 14:16:38,014 - INFO - Waiting for API responses...
+2025-07-30 14:16:45,418 - INFO - Saved data to: raw_data\search_results\samsung_2025-07-30_14-16-45.json
+2025-07-30 14:16:45,419 - INFO - Successfully saved 50 products for 'samsung' to samsung_2025-07-30_14-16-45.json
+2025-07-30 14:16:45,436 - INFO - Successfully collected 50 products for: samsung
+2025-07-30 14:16:46,102 - INFO - ============================================================
+2025-07-30 14:16:46,102 - INFO - COLLECTION SESSION SUMMARY
+2025-07-30 14:16:46,102 - INFO - ============================================================
+2025-07-30 14:16:46,102 - INFO - Session ID: 20250730_141614
+2025-07-30 14:16:46,102 - INFO - Duration: 31.5 seconds
+2025-07-30 14:16:46,102 - INFO - Success Rate: 50.0%
+2025-07-30 14:16:46,102 - INFO - Search Terms Processed: 1
+2025-07-30 14:16:46,103 - INFO - Search Terms Failed: 1
+2025-07-30 14:16:46,103 - INFO - Total Products Found: 50
+2025-07-30 14:16:46,103 - INFO - Files Created: 2
+2025-07-30 14:16:46,103 - INFO - Errors Encountered: 1
+2025-07-30 14:16:46,103 - INFO - Successful Terms: samsung
+2025-07-30 14:16:46,103 - INFO - Failed Terms: iphone
+2025-07-30 14:16:46,103 - INFO - Errors:
+2025-07-30 14:16:46,103 - INFO -   - Search term 'iphone': No data collected for search term: iphone
+2025-07-30 14:16:46,104 - INFO - ============================================================
