@@ -1,0 +1,49 @@
+graph TD
+    %% Style Definitions for Readability
+    classDef entrypoint fill:#70a1ff,stroke:#1e3799,color:#fff,font-weight:bold
+    classDef coretech fill:#5352ed,stroke:#1e3799,color:#fff,font-weight:bold
+    classDef module fill:#feca57,stroke:#b76e11,color:#000
+    classDef decision fill:#ffb8b8,stroke:#c23616,color:#000
+    classDef process fill:#dcdde1,stroke:#485460
+    classDef finaloutput fill:#44bd32,stroke:#1e824c,color:#fff,font-weight:bold,stroke-width:4px
+    classDef errorpath fill:#ff6348,stroke:#b22222,color:#fff
+
+    %% Chart Structure
+    subgraph "🚀 Orchestration Layer"
+        A["main.py <br><b>Entry Point</b>"]:::entrypoint
+        B("Read Product URLs"):::process
+        C["Asyncio Core Engine<br><b>Manages Concurrency</b>"]:::coretech
+    end
+
+    A --> B --> C
+
+    C -- "Spawns parallel tasks" --> D{"Concurrency Limiter<br/>(asyncio.Semaphore)"}:::decision
+
+    subgraph "⚙️ Single URL Processing Task (Concurrent)"
+        D --> E["<b>Scraper Module</b><br/>(Playwright)<br/>Fetches dynamic content"]:::module
+        E -- "Raw HTML" --> F["<b>Parser Module</b><br/>(Beautiful Soup)<br/>Extracts raw data fields"]:::module
+        F -- "Unvalidated Data" --> G["<b>Validator Module</b><br/>(Pydantic)<br/>Cleans & validates structure"]:::module
+    end
+
+    G --> H{Validation Check}:::decision
+
+    subgraph "🏁 Finalization & Output"
+        K("Aggregate All Valid Data"):::process
+        L["<b>Output Module</b><br/>(Pandas)<br/>Creates DataFrame"]:::module
+        M(["✅ Deliverable:<br/>competitor_prices.csv"]):::finaloutput
+    end
+
+    subgraph "⚠️ Error Handling"
+        I["Log Error & Skip Product"]:::errorpath
+    end
+    
+    H -- "✅ Valid Data" --> K
+    H -- "❌ Invalid Data" --> I
+    I --> K
+    
+    K --> L
+    L --> M
+
+    %% Link Styling
+    linkStyle 7 stroke:green,stroke-width:2px;
+    linkStyle 8 stroke:red,stroke-width:2px,stroke-dasharray: 5 5;

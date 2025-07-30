@@ -3,6 +3,7 @@ _*
 __*
 
 # ---Global ignore ---
+/user_data*
 
 
 ##- ***env files (can opt-in for committing if needed)

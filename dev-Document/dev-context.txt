@@ -1,0 +1,3 @@
+- From Adapt POC for Chaiwat's 20 specific product URLs (individual products vs search results)
+        - **Need to manual find item list**....(for this deliver in 2 weeks and then manual grab )
+        - **after have JSON and then use Producer component to producing filter just query data for outcome update to CSV file**.
