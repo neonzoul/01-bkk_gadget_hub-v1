@@ -1,0 +1,21 @@
+{
+  "search_term": "test_metadata_iphone",
+  "collection_timestamp": "2025-07-30T14:42:00.681414",
+  "session_id": "test_metadata_20250730_144200",
+  "total_products": 1,
+  "file_path": "raw_data\\search_results\\2025-07-30\\test_metadata_iphone_test_metadata_20250730_144200_2025-07-30_14-42-00.json",
+  "data": {
+    "products": [
+      {
+        "name": "Test Product",
+        "sku": "TEST001"
+      }
+    ]
+  },
+  "metadata": {
+    "collection_method": "manual_collector",
+    "data_source": "powerbuy.co.th",
+    "file_format": "json",
+    "encoding": "utf-8"
+  }
+}

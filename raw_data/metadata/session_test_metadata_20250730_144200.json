@@ -1,0 +1,21 @@
+{
+  "session_id": "test_metadata_20250730_144200",
+  "start_time": "2025-07-30T14:42:00.673939",
+  "search_terms": [
+    "test_metadata_iphone",
+    "test_metadata_samsung"
+  ],
+  "session_dir": "raw_data\\sessions\\2025-07-30\\test_metadata_20250730_144200",
+  "files_created": [
+    "raw_data\\search_results\\2025-07-30\\test_metadata_iphone_test_metadata_20250730_144200_2025-07-30_14-42-00.json"
+  ],
+  "products_collected": 1,
+  "errors": [],
+  "status": "completed",
+  "end_time": "2025-07-30T14:42:00.682101",
+  "summary": {
+    "test_summary": "completed"
+  },
+  "duration_seconds": 0.008162,
+  "files_count": 1
+}

@@ -1,0 +1,29 @@
+{
+  "session_id": "20250730_144220",
+  "start_time": "2025-07-30T14:42:20.024130",
+  "search_terms": [
+    "iPhone 15",
+    "Samsung Galaxy S24"
+  ],
+  "session_dir": "raw_data\\sessions\\2025-07-30\\20250730_144220",
+  "files_created": [
+    "raw_data\\search_results\\2025-07-30\\iPhone_15_20250730_144220_2025-07-30_14-42-46.json",
+    "raw_data\\search_results\\2025-07-30\\Samsung_Galaxy_S24_20250730_144220_2025-07-30_14-42-53.json"
+  ],
+  "products_collected": 80,
+  "errors": [],
+  "status": "completed",
+  "end_time": "2025-07-30T14:42:54.022575",
+  "summary": {
+    "search_terms_processed": [
+      "iPhone 15",
+      "Samsung Galaxy S24"
+    ],
+    "search_terms_failed": [],
+    "total_products_found": 0,
+    "success_rate": 100.0,
+    "duration_seconds": 33.998354
+  },
+  "duration_seconds": 33.998445,
+  "files_count": 2
+}

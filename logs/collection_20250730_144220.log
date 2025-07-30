@@ -1,0 +1,36 @@
+2025-07-30 14:42:20,019 - INFO - ManualCollector initialized with log file: logs\collection_20250730_144220.log
+2025-07-30 14:42:20,024 - INFO - Started session 20250730_144220 with 2 search terms
+2025-07-30 14:42:20,024 - INFO - Starting collection session 20250730_144220 with 2 search terms
+2025-07-30 14:42:20,024 - INFO - Session directory: raw_data\sessions\2025-07-30\20250730_144220
+2025-07-30 14:42:38,900 - INFO - Processing search term 1/2: iPhone 15
+2025-07-30 14:42:38,901 - INFO - Looking for search element for term: iPhone 15
+2025-07-30 14:42:38,906 - INFO - Performing search for: iPhone 15
+2025-07-30 14:42:39,088 - INFO - Navigated to search results: https://www.powerbuy.co.th/search/iphone
+2025-07-30 14:42:39,088 - INFO - Waiting for API responses...
+2025-07-30 14:42:46,927 - INFO - Saved search results for 'iPhone 15' to raw_data\search_results\2025-07-30\iPhone_15_20250730_144220_2025-07-30_14-42-46.json
+2025-07-30 14:42:46,927 - INFO - Saved organized search results for 'iPhone 15' to raw_data\search_results\2025-07-30\iPhone_15_20250730_144220_2025-07-30_14-42-46.json
+2025-07-30 14:42:46,927 - INFO - Successfully saved 50 products for 'iPhone 15' using organized storage
+2025-07-30 14:42:46,942 - INFO - Successfully collected 0 products for: iPhone 15
+2025-07-30 14:42:46,943 - INFO - Processing search term 2/2: Samsung Galaxy S24
+2025-07-30 14:42:46,943 - INFO - Looking for search element for term: Samsung Galaxy S24
+2025-07-30 14:42:46,948 - INFO - Performing search for: Samsung Galaxy S24
+2025-07-30 14:42:47,064 - INFO - Navigated to search results: https://www.powerbuy.co.th/search/iPhone%2015
+2025-07-30 14:42:47,064 - INFO - Waiting for API responses...
+2025-07-30 14:42:53,649 - INFO - Saved search results for 'Samsung Galaxy S24' to raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_20250730_144220_2025-07-30_14-42-53.json
+2025-07-30 14:42:53,649 - INFO - Saved organized search results for 'Samsung Galaxy S24' to raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_20250730_144220_2025-07-30_14-42-53.json
+2025-07-30 14:42:53,649 - INFO - Successfully saved 30 products for 'Samsung Galaxy S24' using organized storage
+2025-07-30 14:42:53,663 - INFO - Successfully collected 0 products for: Samsung Galaxy S24
+2025-07-30 14:42:54,023 - INFO - Ended session 20250730_144220 - Duration: 34.0s, Files: 2, Products: 80
+2025-07-30 14:42:54,023 - INFO - ============================================================
+2025-07-30 14:42:54,023 - INFO - COLLECTION SESSION SUMMARY
+2025-07-30 14:42:54,023 - INFO - ============================================================
+2025-07-30 14:42:54,023 - INFO - Session ID: 20250730_144220
+2025-07-30 14:42:54,024 - INFO - Duration: 34.0 seconds
+2025-07-30 14:42:54,024 - INFO - Success Rate: 100.0%
+2025-07-30 14:42:54,024 - INFO - Search Terms Processed: 2
+2025-07-30 14:42:54,024 - INFO - Search Terms Failed: 0
+2025-07-30 14:42:54,024 - INFO - Total Products Found: 0
+2025-07-30 14:42:54,024 - INFO - Files Created: 2
+2025-07-30 14:42:54,024 - INFO - Errors Encountered: 0
+2025-07-30 14:42:54,025 - INFO - Successful Terms: iPhone 15, Samsung Galaxy S24
+2025-07-30 14:42:54,025 - INFO - ============================================================

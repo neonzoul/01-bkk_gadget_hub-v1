@@ -1,0 +1,21 @@
+{
+  "search_term": "test naming",
+  "collection_timestamp": "2025-07-30T14:42:00.689262",
+  "session_id": "test_session_naming",
+  "total_products": 1,
+  "file_path": "raw_data\\search_results\\2025-07-30\\test_naming_test_session_naming_2025-07-30_14-42-00.json",
+  "data": {
+    "products": [
+      {
+        "name": "Test",
+        "sku": "TEST"
+      }
+    ]
+  },
+  "metadata": {
+    "collection_method": "manual_collector",
+    "data_source": "powerbuy.co.th",
+    "file_format": "json",
+    "encoding": "utf-8"
+  }
+}

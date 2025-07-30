@@ -1,0 +1,27 @@
+{
+  "search_term": "test_iphone",
+  "collection_timestamp": "2025-07-30T14:39:55.506932",
+  "session_id": "test_session_001",
+  "total_products": 2,
+  "file_path": "raw_data\\search_results\\2025-07-30\\test_iphone_test_session_001_2025-07-30_14-39-55.json",
+  "data": {
+    "products": [
+      {
+        "name": "Test iPhone",
+        "sku": "TEST001",
+        "price": 25000
+      },
+      {
+        "name": "Test Samsung",
+        "sku": "TEST002",
+        "price": 20000
+      }
+    ]
+  },
+  "metadata": {
+    "collection_method": "manual_collector",
+    "data_source": "powerbuy.co.th",
+    "file_format": "json",
+    "encoding": "utf-8"
+  }
+}

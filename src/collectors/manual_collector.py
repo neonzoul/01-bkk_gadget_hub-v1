@@ -17,6 +17,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 from ..validators.models import CollectionSummary
+from .data_organizer import DataOrganizer
 
 
 class CollectionSession:
@@ -107,13 +108,12 @@ class ManualCollector:
         self.user_agent = config.get('scraping', {}).get('user_agent', 
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
         
-        # Storage directories
-        self.search_results_dir = Path(config.get('processing', {}).get('input_directory', 'raw_data/search_results'))
-        self.individual_products_dir = Path(config.get('processing', {}).get('individual_products_dir', 'raw_data/individual_products'))
+        # Initialize data organizer for enhanced storage management
+        self.data_organizer = DataOrganizer(config)
         
-        # Create directories if they don't exist
-        self.search_results_dir.mkdir(parents=True, exist_ok=True)
-        self.individual_products_dir.mkdir(parents=True, exist_ok=True)
+        # Legacy directory references for backward compatibility
+        self.search_results_dir = self.data_organizer.search_results_dir
+        self.individual_products_dir = self.data_organizer.individual_products_dir
         
         # Session management
         self.current_session = None
@@ -165,10 +165,18 @@ class ManualCollector:
         self.current_session = CollectionSession()
         self.current_session.progress_callback = self.progress_callback
         
+        # Start organized data session
+        session_info = self.data_organizer.start_session(
+            self.current_session.session_id, 
+            search_terms
+        )
+        
         self.logger.info(f"Starting collection session {self.current_session.session_id} with {len(search_terms)} search terms")
+        self.logger.info(f"Session directory: {session_info['session_dir']}")
         
         if self.progress_callback:
             self.progress_callback(f"Starting collection session with {len(search_terms)} search terms")
+            self.progress_callback(f"Session directory: {session_info['session_dir']}")
         
         results = {}
         
@@ -215,6 +223,20 @@ class ManualCollector:
                 
                 # End session and log summary
                 self.current_session.end_session()
+                
+                # End organized data session
+                session_summary = self.get_collection_summary()
+                self.data_organizer.end_session(
+                    self.current_session.session_id,
+                    {
+                        'search_terms_processed': self.current_session.search_terms_processed,
+                        'search_terms_failed': self.current_session.search_terms_failed,
+                        'total_products_found': self.current_session.total_products_found,
+                        'success_rate': self.current_session.get_success_rate(),
+                        'duration_seconds': self.current_session.get_duration()
+                    }
+                )
+                
                 self._log_session_summary()
                 
         return results
@@ -351,15 +373,22 @@ class ManualCollector:
                 page.wait_for_load_state("networkidle", timeout=30000)
                 time.sleep(3)
                 
-                # Save individual product data
+                # Save individual product data using organized storage
                 if product_data:
-                    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
                     product_id = self._extract_product_id_from_url(product_url)
-                    filename = f"product_{product_id}_{timestamp}.json"
-                    file_path = self.individual_products_dir / filename
                     
-                    self.save_raw_data(product_data, str(file_path))
-                    self.logger.info(f"Successfully collected individual product data: {filename}")
+                    # Enhance product data with collection metadata
+                    enhanced_data = {
+                        "product_url": product_url,
+                        "product_data": product_data,
+                        "collection_metadata": {
+                            "user_agent": self.user_agent,
+                            "collection_method": "individual_product_collection"
+                        }
+                    }
+                    
+                    file_path = self.save_individual_product_organized(product_id, enhanced_data)
+                    self.logger.info(f"Successfully collected individual product data using organized storage")
                     
                     if self.progress_callback:
                         self.progress_callback(f"Successfully collected product: {product_id}")
@@ -412,6 +441,66 @@ class ManualCollector:
             self.logger.error(error_msg)
             raise  # Re-raise to allow caller to handle
     
+    def save_search_results_organized(self, search_term: str, data: Dict) -> str:
+        """
+        Save search results using the organized data storage system.
+        
+        Args:
+            search_term: The search term used
+            data: Raw search result data
+            
+        Returns:
+            Path to the saved file
+        """
+        try:
+            session_id = self.current_session.session_id if self.current_session else None
+            file_path = self.data_organizer.save_search_results(search_term, data, session_id)
+            
+            self.logger.info(f"Saved organized search results for '{search_term}' to {file_path}")
+            if self.progress_callback:
+                self.progress_callback(f"Saved organized data: {file_path.name}")
+            
+            return str(file_path)
+            
+        except Exception as e:
+            error_msg = f"Error saving organized search results for '{search_term}': {str(e)}"
+            
+            if self.current_session:
+                self.current_session.add_error(error_msg)
+            
+            self.logger.error(error_msg)
+            raise
+    
+    def save_individual_product_organized(self, product_id: str, data: Dict) -> str:
+        """
+        Save individual product data using the organized data storage system.
+        
+        Args:
+            product_id: Unique product identifier
+            data: Raw product data
+            
+        Returns:
+            Path to the saved file
+        """
+        try:
+            session_id = self.current_session.session_id if self.current_session else None
+            file_path = self.data_organizer.save_individual_product(product_id, data, session_id)
+            
+            self.logger.info(f"Saved organized individual product {product_id} to {file_path}")
+            if self.progress_callback:
+                self.progress_callback(f"Saved organized product: {file_path.name}")
+            
+            return str(file_path)
+            
+        except Exception as e:
+            error_msg = f"Error saving organized individual product {product_id}: {str(e)}"
+            
+            if self.current_session:
+                self.current_session.add_error(error_msg)
+            
+            self.logger.error(error_msg)
+            raise
+    
     def get_collection_summary(self) -> CollectionSummary:
         """
         Generate a summary of the collection session.
@@ -463,6 +552,39 @@ class ManualCollector:
             "error_count": len(session.errors),
             "success_rate": session.get_success_rate()
         }
+    
+    def get_data_organization_info(self) -> Dict[str, Any]:
+        """
+        Get information about the data organization structure.
+        
+        Returns:
+            Dictionary with data organization information
+        """
+        return self.data_organizer.get_directory_structure()
+    
+    def list_collection_sessions(self, date: str = None) -> List[Dict[str, Any]]:
+        """
+        List all collection sessions, optionally filtered by date.
+        
+        Args:
+            date: Optional date filter (YYYY-MM-DD format)
+            
+        Returns:
+            List of session information dictionaries
+        """
+        return self.data_organizer.list_sessions(date)
+    
+    def get_session_details(self, session_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Get detailed information about a specific session.
+        
+        Args:
+            session_id: Session identifier
+            
+        Returns:
+            Session details dictionary or None if not found
+        """
+        return self.data_organizer.get_session_info(session_id)
     
     def _setup_browser_context(self, playwright):
         """Set up browser context with anti-detection measures."""
@@ -567,30 +689,24 @@ class ManualCollector:
                     self.progress_callback(f"Collecting data for {search_term}... ({i+1}/5)")
             
             if product_data_found:
-                # Save collected data with timestamp
-                timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-                filename = f"{search_term.replace(' ', '_').replace('/', '_')}_{timestamp}.json"
-                file_path = self.search_results_dir / filename
-                
                 # Prepare data with metadata
                 collection_data = {
                     "search_term": search_term,
-                    "collection_timestamp": timestamp,
                     "total_products": len(product_data_found),
                     "api_responses_received": api_responses_received,
                     "products": product_data_found,
-                    "metadata": {
+                    "collection_metadata": {
                         "url": page.url,
                         "user_agent": self.user_agent,
-                        "collection_method": "API_interception",
-                        "session_id": self.current_session.session_id if self.current_session else None
+                        "collection_method": "API_interception"
                     }
                 }
                 
-                self.save_raw_data(collection_data, str(file_path))
-                self.logger.info(f"Successfully saved {len(product_data_found)} products for '{search_term}' to {filename}")
+                # Save using organized storage system
+                file_path = self.save_search_results_organized(search_term, collection_data)
+                self.logger.info(f"Successfully saved {len(product_data_found)} products for '{search_term}' using organized storage")
                 
-                return str(file_path)
+                return file_path
             else:
                 error_msg = f"No product data found for search term: {search_term}"
                 self.logger.warning(error_msg)

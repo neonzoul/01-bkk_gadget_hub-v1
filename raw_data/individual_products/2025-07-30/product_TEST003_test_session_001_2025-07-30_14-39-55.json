@@ -1,0 +1,18 @@
+{
+  "product_id": "TEST003",
+  "collection_timestamp": "2025-07-30T14:39:55.507746",
+  "session_id": "test_session_001",
+  "file_path": "raw_data\\individual_products\\2025-07-30\\product_TEST003_test_session_001_2025-07-30_14-39-55.json",
+  "data": {
+    "name": "Test Product",
+    "sku": "TEST003",
+    "price": 15000,
+    "details": "Test product details"
+  },
+  "metadata": {
+    "collection_method": "manual_collector",
+    "data_source": "powerbuy.co.th",
+    "file_format": "json",
+    "encoding": "utf-8"
+  }
+}

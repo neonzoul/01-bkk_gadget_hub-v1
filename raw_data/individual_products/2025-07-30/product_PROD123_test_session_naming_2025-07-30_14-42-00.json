@@ -1,0 +1,15 @@
+{
+  "product_id": "PROD123",
+  "collection_timestamp": "2025-07-30T14:42:00.689695",
+  "session_id": "test_session_naming",
+  "file_path": "raw_data\\individual_products\\2025-07-30\\product_PROD123_test_session_naming_2025-07-30_14-42-00.json",
+  "data": {
+    "name": "Test Product"
+  },
+  "metadata": {
+    "collection_method": "manual_collector",
+    "data_source": "powerbuy.co.th",
+    "file_format": "json",
+    "encoding": "utf-8"
+  }
+}
