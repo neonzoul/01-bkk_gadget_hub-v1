@@ -549,9 +549,172 @@ With Day 4 completion, the project is ready to proceed to **Day 5 (Thursday, Jul
 The implementation provides a robust, scalable, and maintainable foundation for the complete PowerBuy scraper system.
 
 ---
+## Task 4.1: Create enhanced manual collector class
+
+**Status:** ✅ COMPLETED  
+**Date:** July 30, 2025  
+**Requirements Addressed:** 2.1, 2.3, 2.5
+
+### Implementation Summary
+
+Successfully implemented Task 4.1 by creating an enhanced ManualCollector class that refactors the existing POC scraper into a structured, production-ready component. This task established the foundation for automated data collection with support for multiple search terms, organized storage, and comprehensive metadata tracking.
+
+### Sub-tasks Completed
+
+#### ✅ Refactored existing POC scraper into a ManualCollector class
+- **Location**: `src/collectors/manual_collector.py`
+- **Architecture**: Structured class design with clear separation of concerns
+- **Browser Automation**: Maintained all original POC functionality including:
+  - Persistent browser context with anti-detection measures
+  - API response interception for PowerBuy JSON endpoints
+  - Cookie banner handling and homepage navigation
+  - Search element detection with multiple selector fallbacks
+- **Error Handling**: Enhanced error recovery and session management
+- **Session Tracking**: Comprehensive tracking of collection progress and statistics
+
+#### ✅ Added support for processing multiple search terms from configuration
+- **Configuration Integration**: 
+  - Created `src/utils/config_loader.py` for flexible configuration loading
+  - Supports loading search terms from both `config.json` and `20urls.txt`
+  - Automatic URL parsing and search term extraction
+- **Batch Processing**: 
+  - `collect_search_data()` method accepts list of search terms
+  - Sequential processing with individual error handling per term
+  - Progress tracking and reporting for each search term
+- **Flexibility**: Supports both configuration-based and URL-based search term sources
+
+#### ✅ Implemented organized JSON file storage with timestamps and metadata
+- **Directory Structure**: 
+  - `raw_data/search_results/` for search result data
+  - `raw_data/individual_products/` for individual product details
+  - Automatic directory creation and management
+- **File Naming**: Timestamp-based naming: `{search_term}_{YYYY-MM-DD_HH-MM-SS}.json`
+- **Metadata Tracking**: Each saved file includes:
+  - Search term and collection timestamp
+  - Total products found and source URL
+  - User agent and collection method information
+  - Complete original JSON data for debugging
+
+### Key Features Implemented
+
+#### 1. **Enhanced Browser Automation**
+```python
+def _setup_browser_context(self, playwright):
+    """Set up browser context with anti-detection measures."""
+    return playwright.chromium.launch_persistent_context(
+        str(self.user_data_dir),
+        headless=False,
+        args=['--disable-blink-features=AutomationControlled'],
+        user_agent=self.user_agent,
+        viewport={'width': 1920, 'height': 1080},
+    )
+```
+
+#### 2. **Multiple Search Terms Processing**
+```python
+def collect_search_data(self, search_terms: List[str]) -> Dict[str, str]:
+    """Collect product data for multiple search terms."""
+    # Processes each search term sequentially
+    # Returns mapping of search terms to result file paths
+    # Comprehensive error handling per search term
+```
+
+#### 3. **Organized Data Storage**
+```python
+collection_data = {
+    "search_term": search_term,
+    "collection_timestamp": timestamp,
+    "total_products": len(product_data_found),
+    "products": product_data_found,
+    "metadata": {
+        "url": page.url,
+        "user_agent": self.user_agent,
+        "collection_method": "API_interception"
+    }
+}
+```
+
+#### 4. **Configuration and Utility Support**
+- **Config Loader**: Flexible configuration loading from multiple sources
+- **URL Parsing**: Automatic extraction of search terms from PowerBuy URLs
+- **Search Term Management**: Fallback defaults and validation
+- **Directory Management**: Automatic creation and organization
+
+### Files Created
+
+```
+├── src/collectors/
+│   ├── __init__.py                    # Module initialization
+│   └── manual_collector.py           # Main ManualCollector class
+├── src/utils/
+│   ├── __init__.py                    # Module initialization
+│   └── config_loader.py              # Configuration utilities
+├── test_manual_collector.py          # Full browser automation test
+├── test_manual_collector_structure.py # Structure validation test
+├── example_manual_collection.py      # Usage demonstration
+└── test_requirements_validation.py   # Comprehensive requirements validation
+```
+
+### Verification Results
+
+#### ✅ Structure Validation Test
+- **Configuration Loading**: ✅ Successfully loaded from config.json
+- **Search Terms**: ✅ Found 19 search terms from 20urls.txt
+- **Directory Creation**: ✅ Organized storage directories created
+- **Session Tracking**: ✅ All tracking mechanisms initialized correctly
+- **Data Storage**: ✅ JSON file saving and metadata inclusion working
+
+#### ✅ Requirements Validation Test
+All task requirements validated with 100% success:
+```
+✅ refactor_poc_to_class: PASSED
+✅ multiple_search_terms: PASSED  
+✅ organized_storage: PASSED
+✅ timestamps_metadata: PASSED
+```
+
+#### ✅ Configuration Integration Test
+- **Config Loading**: Successfully loads from `config.json`
+- **URL Parsing**: Extracted 19 search terms from `20urls.txt`
+- **Fallback Handling**: Proper defaults when configuration is missing
+- **Directory Management**: Automatic creation of required directories
+
+### Integration with Existing System
+
+- **Data Models**: Leverages existing Pydantic models from `src/validators/models.py`
+- **Configuration**: Integrates with established config system
+- **Directory Structure**: Uses existing `raw_data/` organization
+- **Error Handling**: Follows established error logging patterns
+- **POC Compatibility**: Maintains all original POC scraper functionality
+
+### Requirements Satisfaction
+
+- **Requirement 2.1** (Enhanced collection tool): ✅ ManualCollector class with structured design
+- **Requirement 2.3** (Multiple search terms): ✅ Batch processing from configuration sources
+- **Requirement 2.5** (Organized storage): ✅ Timestamp-based files with comprehensive metadata
+
+### Performance Characteristics
+
+- **Browser Management**: Efficient persistent context reuse
+- **Memory Usage**: Optimized for sequential search term processing
+- **Error Recovery**: Continues processing when individual search terms fail
+- **Storage Efficiency**: Organized file structure with metadata preservation
+
+### Next Steps
+
+Task 4.1 completion provides the enhanced manual collection foundation for:
+
+1. **Task 4.2**: Collection session management and progress tracking
+2. **Task 4.3**: Data organization and storage optimization
+3. **Integration**: Ready for integration with DataProducer pipeline
+4. **Production Use**: Structured class ready for automated collection workflows
+
+The ManualCollector class successfully refactors the POC scraper into a production-ready component with enhanced capabilities for multiple search terms, organized storage, and comprehensive metadata tracking.
+
+---
 
 **Day 4 Status: ✅ COMPLETED**  
-**Overall Progress: 3/17 tasks completed (17.6%)**  
-**Next Milestone: Day 5 - Enhanced Manual Collection Tool**
-
+**Overall Progress: 4/17 tasks completed (23.5%)**  
+**Next Milestone: Day 5 - Enhanced Manual Collection Tool (Task 4.2, 4.3)**
+**Kiro : Sonnet4.0 implemented.**
 ---
