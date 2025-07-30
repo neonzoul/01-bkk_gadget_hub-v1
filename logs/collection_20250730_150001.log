@@ -1,0 +1,7 @@
+2025-07-30 15:00:01,791 - INFO - ManualCollector initialized with log file: logs\collection_20250730_150001.log
+2025-07-30 15:00:01,795 - INFO - Saved search results for 'iPhone 15' to raw_data\search_results\2025-07-30\iPhone_15_2025-07-30_15-00-01.json
+2025-07-30 15:00:01,795 - INFO - Saved organized search results for 'iPhone 15' to raw_data\search_results\2025-07-30\iPhone_15_2025-07-30_15-00-01.json
+2025-07-30 15:00:01,796 - INFO - Saved search results for 'Samsung Galaxy S24' to raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_2025-07-30_15-00-01.json
+2025-07-30 15:00:01,796 - INFO - Saved organized search results for 'Samsung Galaxy S24' to raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_2025-07-30_15-00-01.json
+2025-07-30 15:00:01,797 - INFO - Saved search results for 'iPad Pro' to raw_data\search_results\2025-07-30\iPad_Pro_2025-07-30_15-00-01.json
+2025-07-30 15:00:01,797 - INFO - Saved organized search results for 'iPad Pro' to raw_data\search_results\2025-07-30\iPad_Pro_2025-07-30_15-00-01.json
