@@ -90,7 +90,10 @@ Following with .\dev-Document\timeline
     - Add support for multiple search terms and organized storage
     - _Requirements: 2.1, 2.3_
 
-  - [ ] 6.2 Create parsers/ - JSON data extraction functions
+  - [x] 6.2 Create parsers/ - JSON data extraction functions
+
+
+
     - Build JSON parsing functions to extract product data from PowerBuy API responses
     - Implement data transformation logic to convert raw JSON to ProductData models
     - Add price parsing and normalization (remove currency symbols, convert to float)

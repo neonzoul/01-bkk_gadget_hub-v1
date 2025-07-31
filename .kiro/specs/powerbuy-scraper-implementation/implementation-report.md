@@ -1476,3 +1476,239 @@ The PowerBuyScraperCore and enhanced ManualCollector provide a robust, productio
 **Overall Progress: 8/17 tasks completed (47.1%)**  
 **Implementation Context: Kiro spec with Sonnet 4.0**
 ---
+
+## Task 6.2: Create parsers/ - JSON data extraction functions
+
+**Status:** ✅ COMPLETED  
+**Date:** July 31, 2025  
+**Requirements Addressed:** 3.3, 4.2, 4.3  
+**Implementation Context:** Kiro spec with Sonnet 4.0
+
+### Implementation Summary
+
+Successfully implemented Task 6.2 by creating a comprehensive parsers module with specialized JSON data extraction functions for PowerBuy API responses. This task established robust parsing capabilities, advanced price handling with Thai currency support, and complete data transformation pipeline with comprehensive error handling and validation.
+
+### Sub-tasks Completed
+
+#### ✅ Built JSON parsing functions to extract product data from PowerBuy API responses
+- **PowerBuyJSONParser Class**: Comprehensive JSON parsing with support for multiple API response formats:
+  - Standard PowerBuy format: `{"products": [...]}`
+  - Nested data format: `{"data": {"products": [...]}}`
+  - Direct array format: `[product1, product2, ...]`
+  - Single product format: `{product_data}`
+  - Complex nested structures with price and stock hierarchies
+- **Flexible Field Mapping**: Robust extraction from various field names and structures
+- **Error Handling**: Comprehensive error recovery with detailed logging and statistics
+- **Statistics Tracking**: Complete extraction metrics with success rates and error details
+
+#### ✅ Implemented data transformation logic to convert raw JSON to ProductData models
+- **DataTransformer Class**: Complete transformation pipeline with advanced features:
+  - Raw data cleaning and normalization (names, SKUs, stock status)
+  - Thai language support for stock status normalization
+  - Data validation with comprehensive error handling
+  - Transformation statistics and performance tracking
+- **Integration**: Seamless integration with existing Pydantic models
+- **Quality Assurance**: Detailed validation and error reporting for production reliability
+
+#### ✅ Added price parsing and normalization (remove currency symbols, convert to float)
+- **PriceParser Class**: Advanced price parsing with comprehensive Thai currency support:
+  - Multiple currency formats: `฿49,700`, `35900 THB`, `39,900.50 Baht`
+  - Complex formatting: `" ฿ 1,234,567.89 THB "`
+  - Numeric and string inputs with comma separators
+  - Price range validation for PowerBuy products
+  - Comprehensive error handling with descriptive messages
+
+### Key Features Implemented
+
+#### 1. **PowerBuyJSONParser Class**
+```python
+class PowerBuyJSONParser:
+    """Specialized JSON parser for PowerBuy API response structures"""
+    - extract_products_from_json(): Multi-format JSON parsing
+    - _extract_from_products_array(): Array processing with error isolation
+    - _extract_single_product(): Individual product extraction
+    - _extract_product_name/sku/price/stock(): Flexible field mapping
+    - get_extraction_stats(): Comprehensive statistics tracking
+    - reset_stats(): Statistics management for multiple operations
+```
+
+#### 2. **PriceParser Class**
+```python
+class PriceParser:
+    """Specialized price parsing utility for PowerBuy product prices"""
+    - parse_price(): Multi-format price parsing with Thai currency support
+    - _clean_price_string(): Currency symbol and formatting removal
+    - validate_price_range(): Price validation for PowerBuy products
+    - Support for: ฿49,700 | 35900 THB | 39,900.50 Baht | 1,234,567.89
+```
+
+#### 3. **DataTransformer Class**
+```python
+class DataTransformer:
+    """Data transformation utility for RawProductData to ProductData conversion"""
+    - transform_to_product_data(): Complete transformation pipeline
+    - _transform_single_product(): Individual product transformation
+    - _parse_and_validate_price(): Price parsing with error context
+    - _clean_product_name/sku(): Data cleaning and normalization
+    - _normalize_stock_status(): Thai/English stock status normalization
+    - get_transformation_stats(): Performance and error tracking
+```
+
+#### 4. **Thai Language Support**
+```python
+# Stock status normalization examples
+'มีสินค้า' → 'In Stock'
+'หมด' → 'Out of Stock'  
+'พร้อมส่ง' → 'In Stock'
+'สินค้าหมด' → 'Out of Stock'
+```
+
+### Files Created
+
+```
+├── src/parsers/
+│   ├── __init__.py                    # Module initialization with exports
+│   └── powerbuy_parser.py            # Main implementation (3 classes)
+├── test_parsers_implementation.py     # Comprehensive test suite (5/5 tests passed)
+└── example_parsers_usage.py          # Usage demonstration and examples
+```
+
+### Verification Results
+
+#### ✅ Comprehensive Test Suite
+All tests passed with 100% success rate:
+```
+Task 6.2 Implementation Test Suite
+==================================================
+✅ PriceParser: 19/19 tests passed
+✅ PowerBuyJSONParser: All tests passed  
+✅ DataTransformer: All tests passed
+✅ Integration: All tests passed
+✅ Requirements compliance: All requirements satisfied
+
+Test Results: 5/5 tests passed
+🎉 All tests passed! Task 6.2 implementation is complete.
+```
+
+#### ✅ PriceParser Validation (19/19 tests passed)
+- **Currency Formats**: ✅ ฿49,700 → 49,700.00 THB
+- **Text Formats**: ✅ 35900 THB → 35,900.00 THB  
+- **Complex Formatting**: ✅ " ฿ 1,234,567.89 THB " → 1,234,567.89 THB
+- **Error Handling**: ✅ Proper ValueError for invalid inputs
+- **Range Validation**: ✅ Price range validation for PowerBuy products
+
+#### ✅ PowerBuyJSONParser Validation
+- **Standard Format**: ✅ `{"products": [...]}` - Extracted 2 products
+- **Array Format**: ✅ `[product1, product2]` - Extracted 1 product
+- **Single Format**: ✅ `{product_data}` - Extracted 1 product
+- **Nested Format**: ✅ `{"data": {"products": [...]}}` - Extracted 1 product
+- **Complex Structures**: ✅ Nested price/stock extraction working
+- **Statistics**: ✅ 100% success rate tracking
+
+#### ✅ DataTransformer Validation
+- **Transformation Pipeline**: ✅ 4/4 products transformed successfully
+- **Name/SKU Cleaning**: ✅ Whitespace removal and normalization
+- **Price Parsing**: ✅ Thai currency formats converted correctly
+- **Stock Normalization**: ✅ Thai text → English standard values
+- **Error Handling**: ✅ Empty names handled with defaults
+- **Statistics**: ✅ 100% transformation success rate
+
+#### ✅ Integration Testing
+- **Model Compatibility**: ✅ Works with existing RawProductData/ProductData models
+- **Pipeline Flow**: ✅ JSON → RawProductData → ProductData conversion
+- **Serialization**: ✅ ProductData model serialization working
+- **Error Recovery**: ✅ Graceful handling of malformed data
+
+### Integration with Existing System
+
+- **Pydantic Models**: Seamless integration with existing `src/validators/models.py`
+- **Configuration**: Compatible with established config system
+- **Error Handling**: Follows established error logging patterns
+- **Statistics**: Consistent with existing statistics tracking approach
+- **Module Structure**: Clean integration with existing `src/` architecture
+
+### Requirements Satisfaction
+
+- **Requirement 3.3** (PowerBuy API structure): ✅ Comprehensive support for multiple PowerBuy API response formats with flexible parsing
+- **Requirement 4.2** (Data transformation logic): ✅ Complete transformation pipeline from raw JSON to validated ProductData models
+- **Requirement 4.3** (Price parsing and normalization): ✅ Advanced price parsing with Thai currency support and normalization
+
+### Performance Characteristics
+
+- **Parsing Speed**: Efficient JSON processing with minimal overhead
+- **Memory Usage**: Optimized for large datasets with individual product processing
+- **Error Recovery**: Continues processing when individual products fail
+- **Scalability**: Designed to handle variable numbers of products and formats
+- **Statistics Overhead**: Minimal performance impact with comprehensive tracking
+
+### Technical Specifications
+
+#### JSON Parsing Capabilities
+```
+✅ Standard Format: {"products": [...]} - PowerBuy primary format
+✅ Nested Format: {"data": {"products": [...]}} - Alternative structure
+✅ Array Format: [product1, product2, ...] - Direct product arrays
+✅ Single Format: {product_data} - Individual product objects
+✅ Complex Structures: Nested price/stock hierarchies
+✅ Field Flexibility: Multiple field name variations supported
+```
+
+#### Price Parsing Features
+```
+✅ Thai Currency: ฿49,700 | 49700 THB | 39,900.50 Baht
+✅ Numeric Input: 49700 | 49700.50 (direct numbers)
+✅ Formatted Strings: "49,700" | " 1,234,567.89 "
+✅ Complex Formatting: " ฿ 49,700.50 THB " (mixed symbols)
+✅ Error Handling: Descriptive errors for invalid formats
+✅ Range Validation: PowerBuy product price range validation
+```
+
+#### Data Transformation Features
+```
+✅ Name Cleaning: Whitespace removal and normalization
+✅ SKU Normalization: Uppercase conversion and validation
+✅ Stock Status: Thai → English normalization (มีสินค้า → In Stock)
+✅ Price Validation: Non-negative validation with 2 decimal precision
+✅ Error Context: Detailed error messages with product context
+✅ Statistics: Comprehensive transformation metrics
+```
+
+### Usage Examples
+
+#### Complete Pipeline Demonstration
+```python
+# JSON parsing
+parser = PowerBuyJSONParser()
+raw_products = parser.extract_products_from_json(api_response, "source")
+
+# Data transformation  
+transformer = DataTransformer()
+validated_products = transformer.transform_to_product_data(raw_products)
+
+# Results: Clean ProductData objects ready for CSV export
+```
+
+#### Price Parsing Examples
+```python
+PriceParser.parse_price("฿49,700")        # → 49700.0
+PriceParser.parse_price("35900 THB")      # → 35900.0  
+PriceParser.parse_price("39,900.50 Baht") # → 39900.5
+```
+
+### Next Steps
+
+Task 6.2 completion provides comprehensive parsing foundation for:
+
+1. **Task 6.3**: Enhanced validators module with Pydantic model organization
+2. **DataProducer Integration**: Ready for integration with existing data processing pipeline
+3. **Production Use**: Robust parsing capabilities for live PowerBuy data collection
+4. **CSV Export**: Validated ProductData ready for final CSV generation
+
+The parsers module establishes a production-ready foundation for PowerBuy data extraction with comprehensive Thai language support, flexible JSON parsing, and robust error handling capabilities.
+
+---
+
+**Day 6 Progress: 2/3 tasks completed (66.7%)**  
+**Overall Progress: 9/17 tasks completed (52.9%)**  
+**Implementation Context: Kiro spec with Sonnet 4.0**
+---
