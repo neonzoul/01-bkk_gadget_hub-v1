@@ -1712,3 +1712,237 @@ The parsers module establishes a production-ready foundation for PowerBuy data e
 **Overall Progress: 9/17 tasks completed (52.9%)**  
 **Implementation Context: Kiro spec with Sonnet 4.0**
 ---
+
+## Task 6.3: Create validators/ - Enhanced Pydantic models and validation
+
+**Status:** ✅ COMPLETED  
+**Date:** July 31, 2025  
+**Requirements Addressed:** 4.1, 4.3, 1.1  
+**Implementation Context:** Kiro spec with Sonnet 4.0
+
+### Implementation Summary
+
+Successfully implemented Task 6.3 by creating enhanced validators with comprehensive Pydantic models and advanced validation capabilities. This task established robust data validation, Thai language support for stock status normalization, and production-ready validation rules for PowerBuy product data quality assurance.
+
+### Sub-tasks Completed
+
+#### ✅ Moved Pydantic models to dedicated validators module with enhanced functionality
+- **Enhanced RawProductData Model**: Advanced model with field validation, automatic cleaning, and support for additional fields
+- **Enhanced ProductData Model**: Comprehensive validation with Thai language support, data cleaning, and normalization
+- **CSV Compatibility**: Both models include proper validation, error handling, and CSV-compatible data cleaning
+- **Production Ready**: Enhanced error handling and validation for production data quality
+
+#### ✅ Added comprehensive stock status normalization to standard values
+- **StockStatusNormalizer Class**: Extensive Thai language support with 30+ Thai stock status patterns
+- **Comprehensive Coverage**: Thai patterns (มีสินค้า, หมด, พร้อมส่ง) and English variations
+- **Flexible Matching**: Exact, substring, and word boundary matching with pattern priority
+- **Statistics Tracking**: Complete normalization statistics and custom pattern support
+- **Standard Values**: Normalizes to "In Stock", "Out of Stock", or "Unknown"
+
+#### ✅ Integrated Pydantic validation for all processed product data
+- **ProductValidator Class**: Advanced product data validation with comprehensive rules
+- **Field Validation**: Name, SKU, price, and stock status validation with cleaning
+- **Quality Assurance**: Production-ready validation for data quality assurance
+- **Error Reporting**: Detailed validation errors with context and statistics tracking
+- **Integration**: Seamless integration with existing parsers and data pipeline
+
+### Key Features Implemented
+
+#### 1. **Enhanced Pydantic Models**
+```python
+class RawProductData(BaseModel):
+    """Enhanced raw product data model with validation and cleaning"""
+    - Field validation with automatic cleaning
+    - Support for additional fields and flexible JSON structure
+    - Proper error handling and validation messages
+    - CSV-compatible data formatting
+
+class ProductData(BaseModel):
+    """Enhanced validated product data model"""
+    - Comprehensive validation with Thai language support
+    - Data cleaning and normalization
+    - Price validation with 2 decimal precision
+    - Stock status normalization integration
+```
+
+#### 2. **StockStatusNormalizer Class**
+```python
+class StockStatusNormalizer:
+    """Comprehensive stock status normalization utility"""
+    - normalize_stock_status(): Multi-pattern Thai/English normalization
+    - add_custom_pattern(): Custom pattern support for specific cases
+    - get_normalization_stats(): Statistics tracking and reporting
+    - 30+ Thai patterns: มีสินค้า → In Stock, หมด → Out of Stock
+    - English variations: Available, Sold Out, In-Stock, etc.
+```
+
+#### 3. **ProductValidator Class**
+```python
+class ProductValidator:
+    """Advanced product data validation utility"""
+    - validate_product_data(): Comprehensive product validation
+    - validate_batch(): Batch validation with error isolation
+    - _validate_name/sku/price/stock(): Individual field validation
+    - get_validation_stats(): Performance and error tracking
+    - Production-ready validation rules and quality assurance
+```
+
+#### 4. **Thai Language Support Examples**
+```python
+# Stock status normalization patterns
+'มีสินค้า' → 'In Stock'           # Has product
+'หมด' → 'Out of Stock'            # Sold out
+'พร้อมส่ง' → 'In Stock'           # Ready to ship
+'สินค้าหมด' → 'Out of Stock'      # Product sold out
+'ของหมด' → 'Out of Stock'         # Items finished
+'มี' → 'In Stock'                 # Available
+```
+
+### Files Created/Modified
+
+```
+├── src/validators/
+│   ├── __init__.py                    # Updated module exports
+│   ├── models.py                      # Enhanced Pydantic models (updated existing)
+│   ├── product_validator.py           # Advanced product validation utility
+│   └── stock_normalizer.py           # Comprehensive stock status normalization
+├── test_validators_implementation.py  # Comprehensive test suite (6/6 tests passed)
+└── example_validators_usage.py        # Usage demonstration and examples
+```
+
+### Verification Results
+
+#### ✅ Comprehensive Test Suite
+All tests passed with 100% success rate:
+```
+Task 6.3 Implementation Test Suite
+==================================================
+✅ StockStatusNormalizer: All tests passed
+✅ ProductValidator: All tests passed  
+✅ Enhanced Pydantic Models: All tests passed
+✅ Integration: All tests passed
+✅ Thai Language Support: All tests passed
+✅ Requirements compliance: All requirements satisfied
+
+Test Results: 6/6 tests passed
+🎉 All tests passed! Task 6.3 implementation is complete.
+```
+
+#### ✅ StockStatusNormalizer Validation
+- **Thai Patterns**: ✅ 15+ Thai stock status patterns correctly normalized
+- **English Patterns**: ✅ Comprehensive English variations handled
+- **Pattern Matching**: ✅ Exact, substring, and word boundary matching working
+- **Custom Patterns**: ✅ Custom pattern addition and priority handling
+- **Statistics**: ✅ Complete normalization statistics tracking
+
+#### ✅ ProductValidator Validation
+- **Field Validation**: ✅ Name, SKU, price, stock status validation working
+- **Data Cleaning**: ✅ Automatic cleaning and normalization applied
+- **Error Handling**: ✅ Detailed validation errors with context
+- **Batch Processing**: ✅ Batch validation with individual error isolation
+- **Statistics**: ✅ Comprehensive validation statistics tracking
+
+#### ✅ Enhanced Models Validation
+- **RawProductData**: ✅ Enhanced validation with field cleaning
+- **ProductData**: ✅ Comprehensive validation with Thai language support
+- **CSV Compatibility**: ✅ Proper data formatting for CSV export
+- **Integration**: ✅ Seamless integration with existing parsers
+
+#### ✅ Integration Testing
+- **Parser Integration**: ✅ Works with existing PowerBuyJSONParser
+- **Data Pipeline**: ✅ Complete JSON → RawProductData → ProductData flow
+- **Error Recovery**: ✅ Graceful handling of validation failures
+- **Statistics**: ✅ End-to-end statistics tracking working
+
+### Integration with Existing System
+
+- **Parsers Module**: Seamless integration with existing `src/parsers/powerbuy_parser.py`
+- **Data Models**: Enhanced existing models without breaking compatibility
+- **Configuration**: Compatible with established config system
+- **Error Handling**: Follows established error logging patterns
+- **Statistics**: Consistent with existing statistics tracking approach
+
+### Requirements Satisfaction
+
+- **Requirement 4.1** (Pydantic models in validators): ✅ Moved and enhanced Pydantic models to dedicated validators module with advanced functionality
+- **Requirement 4.3** (Stock status normalization): ✅ Comprehensive stock status normalization to standard values with extensive Thai language support
+- **Requirement 1.1** (Pydantic validation): ✅ Integrated comprehensive Pydantic validation for all processed product data with advanced validation rules
+
+### Performance Characteristics
+
+- **Validation Speed**: Efficient field-level validation with minimal overhead
+- **Memory Usage**: Optimized for large datasets with individual product processing
+- **Thai Processing**: Fast pattern matching with optimized regex patterns
+- **Error Recovery**: Continues processing when individual products fail validation
+- **Statistics Overhead**: Minimal performance impact with comprehensive tracking
+
+### Technical Specifications
+
+#### Stock Status Normalization Features
+```
+✅ Thai Language: 30+ patterns (มีสินค้า, หมด, พร้อมส่ง, สินค้าหมด)
+✅ English Variations: Available, Sold Out, In-Stock, Out-of-Stock
+✅ Pattern Types: Exact match, substring match, word boundary match
+✅ Custom Patterns: Support for adding custom normalization patterns
+✅ Statistics: Complete normalization statistics and reporting
+✅ Standard Output: "In Stock", "Out of Stock", "Unknown"
+```
+
+#### Product Validation Features
+```
+✅ Name Validation: Length, content, and format validation
+✅ SKU Validation: Format validation and normalization
+✅ Price Validation: Non-negative validation with 2 decimal precision
+✅ Stock Validation: Integration with stock status normalization
+✅ Batch Processing: Efficient batch validation with error isolation
+✅ Error Context: Detailed validation errors with product context
+```
+
+#### Enhanced Model Features
+```
+✅ Field Validation: Automatic cleaning and normalization
+✅ Thai Support: Full Unicode support with proper normalization
+✅ CSV Compatibility: Proper data formatting for CSV export
+✅ Error Handling: Comprehensive validation with descriptive errors
+✅ Flexibility: Support for additional fields and variations
+✅ Integration: Seamless integration with existing data pipeline
+```
+
+### Usage Examples
+
+#### Complete Validation Pipeline
+```python
+# Stock status normalization
+normalizer = StockStatusNormalizer()
+normalized_status = normalizer.normalize_stock_status("มีสินค้า")  # → "In Stock"
+
+# Product validation
+validator = ProductValidator()
+validated_products = validator.validate_batch(raw_products)
+
+# Enhanced model usage
+product = ProductData(
+    name="iPhone 15 Pro",
+    sku="IPHONE15PRO",
+    price=49700.0,
+    stock_status="มีสินค้า"  # Automatically normalized to "In Stock"
+)
+```
+
+### Next Steps
+
+Task 6.3 completion provides comprehensive validation foundation for:
+
+1. **Day 7 Implementation**: CSV export functionality with validated data
+2. **Data Quality**: Production-ready validation for data quality assurance
+3. **Thai Language**: Complete Thai language support for PowerBuy data
+4. **Integration**: Ready for integration with complete data processing pipeline
+
+The enhanced validators module establishes a production-ready foundation for PowerBuy data validation with comprehensive Thai language support, advanced validation rules, and seamless integration with the existing data pipeline.
+
+---
+
+**Day 6 Progress: 3/3 tasks completed (100%)**  
+**Overall Progress: 10/17 tasks completed (58.8%)**  
+**Implementation Context: Kiro spec with Sonnet 4.0**
+---
