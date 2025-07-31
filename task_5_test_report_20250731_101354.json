@@ -1,0 +1,229 @@
+{
+  "task_info": {
+    "task_number": "5",
+    "task_title": "Test manual collection process with sample search terms",
+    "requirements_tested": [
+      "2.1",
+      "2.5"
+    ],
+    "test_date": "2025-07-31T10:13:54.537684",
+    "test_duration_seconds": 0.078487
+  },
+  "test_summary": {
+    "total_tests": 24,
+    "tests_passed": 21,
+    "tests_failed": 3,
+    "success_rate": 87.5
+  },
+  "configuration_validation": {
+    "config_loaded": true,
+    "search_terms_count": 5,
+    "sample_search_terms": [
+      "iPhone 15",
+      "Samsung Galaxy S24",
+      "iPad Pro",
+      "MacBook Air",
+      "AirPods Pro"
+    ]
+  },
+  "collection_simulation_results": {
+    "session_id": "20250731_101354",
+    "search_terms": [
+      "iPhone 15",
+      "Samsung Galaxy S24",
+      "iPad Pro"
+    ],
+    "files_created": [
+      "raw_data\\search_results\\2025-07-31\\iPhone_15_2025-07-31_10-13-54.json",
+      "raw_data\\search_results\\2025-07-31\\Samsung_Galaxy_S24_2025-07-31_10-13-54.json",
+      "raw_data\\search_results\\2025-07-31\\iPad_Pro_2025-07-31_10-13-54.json"
+    ],
+    "products_found": 21
+  },
+  "file_organization_validation": {
+    "files_exist": true,
+    "file_structure_valid": true,
+    "metadata_present": true,
+    "file_details": [
+      {
+        "file_path": "raw_data\\search_results\\2025-07-31\\iPhone_15_2025-07-31_10-13-54.json",
+        "file_size": 4302,
+        "products_count": 6,
+        "search_term": "iPhone 15",
+        "collection_timestamp": "2025-07-31T10:13:54.566852"
+      },
+      {
+        "file_path": "raw_data\\search_results\\2025-07-31\\Samsung_Galaxy_S24_2025-07-31_10-13-54.json",
+        "file_size": 5127,
+        "products_count": 7,
+        "search_term": "Samsung Galaxy S24",
+        "collection_timestamp": "2025-07-31T10:13:54.568045"
+      },
+      {
+        "file_path": "raw_data\\search_results\\2025-07-31\\iPad_Pro_2025-07-31_10-13-54.json",
+        "file_size": 5455,
+        "products_count": 8,
+        "search_term": "iPad Pro",
+        "collection_timestamp": "2025-07-31T10:13:54.569333"
+      }
+    ]
+  },
+  "metadata_tracking_validation": {
+    "session_metadata_exists": true,
+    "session_metadata_valid": true,
+    "individual_file_metadata_valid": true,
+    "metadata_consistency": false
+  },
+  "producer_readiness_validation": {
+    "files_readable": true,
+    "data_structure_compatible": true,
+    "product_data_extractable": true,
+    "ready_for_processing": true
+  },
+  "detailed_test_results": [
+    {
+      "test_name": "Load configuration from config.json",
+      "passed": true,
+      "details": "Config loaded with 4 sections",
+      "timestamp": "2025-07-31T10:13:54.558173"
+    },
+    {
+      "test_name": "Extract search terms from 20urls.txt",
+      "passed": true,
+      "details": "Found 5 search terms",
+      "timestamp": "2025-07-31T10:13:54.558442"
+    },
+    {
+      "test_name": "Search terms validation",
+      "passed": true,
+      "details": "First term: 'iPhone 15'",
+      "timestamp": "2025-07-31T10:13:54.558627"
+    },
+    {
+      "test_name": "ManualCollector initialization",
+      "passed": true,
+      "details": "Collector created successfully",
+      "timestamp": "2025-07-31T10:13:54.561746"
+    },
+    {
+      "test_name": "Directory structure validation",
+      "passed": true,
+      "details": "Search results: raw_data\\search_results, Individual products: raw_data\\individual_products",
+      "timestamp": "2025-07-31T10:13:54.561930"
+    },
+    {
+      "test_name": "Data organization info retrieval",
+      "passed": true,
+      "details": "Base directory: N/A",
+      "timestamp": "2025-07-31T10:13:54.565057"
+    },
+    {
+      "test_name": "Collection session simulation",
+      "passed": true,
+      "details": "Simulated collection for 3 terms",
+      "timestamp": "2025-07-31T10:13:54.571101"
+    },
+    {
+      "test_name": "File structure validation: iPhone_15_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "All required fields present",
+      "timestamp": "2025-07-31T10:13:54.582695"
+    },
+    {
+      "test_name": "Metadata validation: iPhone_15_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "All required metadata present",
+      "timestamp": "2025-07-31T10:13:54.582891"
+    },
+    {
+      "test_name": "File structure validation: Samsung_Galaxy_S24_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "All required fields present",
+      "timestamp": "2025-07-31T10:13:54.594644"
+    },
+    {
+      "test_name": "Metadata validation: Samsung_Galaxy_S24_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "All required metadata present",
+      "timestamp": "2025-07-31T10:13:54.594841"
+    },
+    {
+      "test_name": "File structure validation: iPad_Pro_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "All required fields present",
+      "timestamp": "2025-07-31T10:13:54.604520"
+    },
+    {
+      "test_name": "Metadata validation: iPad_Pro_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "All required metadata present",
+      "timestamp": "2025-07-31T10:13:54.604687"
+    },
+    {
+      "test_name": "Overall file organization validation",
+      "passed": true,
+      "details": "Files: 3 validated",
+      "timestamp": "2025-07-31T10:13:54.605015"
+    },
+    {
+      "test_name": "Session metadata file exists",
+      "passed": true,
+      "details": "Found: session_20250731_101354.json",
+      "timestamp": "2025-07-31T10:13:54.605522"
+    },
+    {
+      "test_name": "Session metadata validation",
+      "passed": true,
+      "details": "All required fields present",
+      "timestamp": "2025-07-31T10:13:54.613163"
+    },
+    {
+      "test_name": "Metadata consistency: iPhone_15_2025-07-31_10-13-54.json",
+      "passed": false,
+      "details": "Session ID mismatch: expected 20250731_101354, got standalone",
+      "timestamp": "2025-07-31T10:13:54.613662"
+    },
+    {
+      "test_name": "Metadata consistency: Samsung_Galaxy_S24_2025-07-31_10-13-54.json",
+      "passed": false,
+      "details": "Session ID mismatch: expected 20250731_101354, got standalone",
+      "timestamp": "2025-07-31T10:13:54.614106"
+    },
+    {
+      "test_name": "Metadata consistency: iPad_Pro_2025-07-31_10-13-54.json",
+      "passed": false,
+      "details": "Session ID mismatch: expected 20250731_101354, got standalone",
+      "timestamp": "2025-07-31T10:13:54.614473"
+    },
+    {
+      "test_name": "Producer readiness: iPhone_15_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "6 products, all fields present",
+      "timestamp": "2025-07-31T10:13:54.614981"
+    },
+    {
+      "test_name": "Producer readiness: Samsung_Galaxy_S24_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "7 products, all fields present",
+      "timestamp": "2025-07-31T10:13:54.615377"
+    },
+    {
+      "test_name": "Producer readiness: iPad_Pro_2025-07-31_10-13-54.json",
+      "passed": true,
+      "details": "8 products, all fields present",
+      "timestamp": "2025-07-31T10:13:54.615727"
+    },
+    {
+      "test_name": "Product data extraction validation",
+      "passed": true,
+      "details": "21/21 products extractable (100.0%)",
+      "timestamp": "2025-07-31T10:13:54.615861"
+    },
+    {
+      "test_name": "Overall producer component readiness",
+      "passed": true,
+      "details": "Files ready for producer component processing",
+      "timestamp": "2025-07-31T10:13:54.616008"
+    }
+  ]
+}

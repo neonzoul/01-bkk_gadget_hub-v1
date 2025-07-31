@@ -1,0 +1,158 @@
+{
+  "search_term": "iPad Pro",
+  "collection_timestamp": "2025-07-31T10:13:54.569333",
+  "session_id": "standalone",
+  "total_products": 8,
+  "file_path": "raw_data\\search_results\\2025-07-31\\iPad_Pro_2025-07-31_10-13-54.json",
+  "data": {
+    "products": [
+      {
+        "id": "PROD_IPAD_PRO_001",
+        "name": "iPad Pro Model 1",
+        "sku": "SKU_IPADPR_001",
+        "price": "15000",
+        "stock_status": "Out of Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-1",
+        "image_url": "https://www.powerbuy.co.th/images/sample-1.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "Black",
+          "storage": "64GB",
+          "warranty": "1 Year"
+        }
+      },
+      {
+        "id": "PROD_IPAD_PRO_002",
+        "name": "iPad Pro Model 2",
+        "sku": "SKU_IPADPR_002",
+        "price": "17000",
+        "stock_status": "In Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-2",
+        "image_url": "https://www.powerbuy.co.th/images/sample-2.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "White",
+          "storage": "128GB",
+          "warranty": "1 Year"
+        }
+      },
+      {
+        "id": "PROD_IPAD_PRO_003",
+        "name": "iPad Pro Model 3",
+        "sku": "SKU_IPADPR_003",
+        "price": "19000",
+        "stock_status": "In Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-3",
+        "image_url": "https://www.powerbuy.co.th/images/sample-3.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "Blue",
+          "storage": "192GB",
+          "warranty": "1 Year"
+        }
+      },
+      {
+        "id": "PROD_IPAD_PRO_004",
+        "name": "iPad Pro Model 4",
+        "sku": "SKU_IPADPR_004",
+        "price": "21000",
+        "stock_status": "Out of Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-4",
+        "image_url": "https://www.powerbuy.co.th/images/sample-4.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "Black",
+          "storage": "256GB",
+          "warranty": "1 Year"
+        }
+      },
+      {
+        "id": "PROD_IPAD_PRO_005",
+        "name": "iPad Pro Model 5",
+        "sku": "SKU_IPADPR_005",
+        "price": "23000",
+        "stock_status": "In Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-5",
+        "image_url": "https://www.powerbuy.co.th/images/sample-5.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "White",
+          "storage": "320GB",
+          "warranty": "1 Year"
+        }
+      },
+      {
+        "id": "PROD_IPAD_PRO_006",
+        "name": "iPad Pro Model 6",
+        "sku": "SKU_IPADPR_006",
+        "price": "25000",
+        "stock_status": "In Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-6",
+        "image_url": "https://www.powerbuy.co.th/images/sample-6.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "Blue",
+          "storage": "384GB",
+          "warranty": "1 Year"
+        }
+      },
+      {
+        "id": "PROD_IPAD_PRO_007",
+        "name": "iPad Pro Model 7",
+        "sku": "SKU_IPADPR_007",
+        "price": "27000",
+        "stock_status": "Out of Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-7",
+        "image_url": "https://www.powerbuy.co.th/images/sample-7.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "Black",
+          "storage": "448GB",
+          "warranty": "1 Year"
+        }
+      },
+      {
+        "id": "PROD_IPAD_PRO_008",
+        "name": "iPad Pro Model 8",
+        "sku": "SKU_IPADPR_008",
+        "price": "29000",
+        "stock_status": "In Stock",
+        "brand": "iPad",
+        "category": "Electronics",
+        "url": "https://www.powerbuy.co.th/product/sample-8",
+        "image_url": "https://www.powerbuy.co.th/images/sample-8.jpg",
+        "description": "Sample iPad Pro product for testing purposes",
+        "specifications": {
+          "color": "White",
+          "storage": "512GB",
+          "warranty": "1 Year"
+        }
+      }
+    ],
+    "metadata": {
+      "url": "https://www.powerbuy.co.th/search/iPad%20Pro",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "collection_method": "simulation_for_testing"
+    }
+  },
+  "metadata": {
+    "collection_method": "manual_collector",
+    "data_source": "powerbuy.co.th",
+    "file_format": "json",
+    "encoding": "utf-8"
+  }
+}

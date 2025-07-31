@@ -192,13 +192,16 @@ class DataOrganizer:
         Returns:
             Path to the saved file
         """
-        file_path = self.generate_search_result_filename(search_term, session_id)
+        # Use current session ID if available and no session_id provided
+        effective_session_id = session_id or self.current_session_id or 'standalone'
+        
+        file_path = self.generate_search_result_filename(search_term, effective_session_id)
         
         # Enhance data with metadata
         enhanced_data = {
             'search_term': search_term,
             'collection_timestamp': datetime.now().isoformat(),
-            'session_id': session_id or 'standalone',
+            'session_id': effective_session_id,
             'total_products': len(data.get('products', [])),
             'file_path': str(file_path),
             'data': data,

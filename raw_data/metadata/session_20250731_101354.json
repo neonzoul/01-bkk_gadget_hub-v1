@@ -1,0 +1,30 @@
+{
+  "session_id": "20250731_101354",
+  "start_time": "2025-07-31T10:13:54.566071",
+  "search_terms": [
+    "iPhone 15",
+    "Samsung Galaxy S24",
+    "iPad Pro"
+  ],
+  "session_dir": "raw_data\\sessions\\2025-07-31\\20250731_101354",
+  "files_created": [],
+  "products_collected": 0,
+  "errors": [],
+  "status": "completed",
+  "end_time": "2025-07-31T10:13:54.570365",
+  "summary": {
+    "search_terms_processed": [
+      "iPhone 15",
+      "Samsung Galaxy S24",
+      "iPad Pro"
+    ],
+    "total_products_found": 21,
+    "files_created": [
+      "raw_data\\search_results\\2025-07-31\\iPhone_15_2025-07-31_10-13-54.json",
+      "raw_data\\search_results\\2025-07-31\\Samsung_Galaxy_S24_2025-07-31_10-13-54.json",
+      "raw_data\\search_results\\2025-07-31\\iPad_Pro_2025-07-31_10-13-54.json"
+    ]
+  },
+  "duration_seconds": 0.004294,
+  "files_count": 0
+}

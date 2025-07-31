@@ -15,7 +15,7 @@
 
 **Day 2 (Monday, July 28): Initial Scraping & POC Completion**
 
--   `[x]` **Goal:** Prove you can access and read the target site.
+- **Goal:** Prove you can access and read the target site.
 -   `[x]` **Task:** Write the basic `playwright` script to launch a browser, navigate to ONE of the PowerBuy URLs Chaiwat provided, and save the page's HTML content to a local file.
 -   `[x]` **Analysis:** Examine the saved HTML to identify the CSS selectors for `Product Name` and `SKU`.
 -   `[x]` **Major Breakthrough:** Discovered that PowerBuy loads product data via dynamic JSON API calls, not static HTML
@@ -37,13 +37,13 @@
 
 -   `` **Goal:** Implement core data models and producer component foundation
 -   `` **Priority Task:** Create Pydantic models for ProductData, RawProductData, and CollectionSummary
--   `[ ]` **Task:** Set up project structure with src/, raw_data/, and output directories
+-   `[x]` **Task:** Set up project structure with src/, raw_data/, and output directories
 -   `` **Implementation:** Build DataProducer class to process raw JSON files into clean CSV
--   `[ ]` **Validation:** Test data models with sample JSON data from POC
+-   `[x]` **Validation:** Test data models with sample JSON data from POC
 
 **Day 5 (Thursday, July 31): Enhanced Manual Collection Tool**
 
--   `[ ]` **Goal:** Enhance POC scraper for organized manual data collection
+-   **Goal:** Enhance POC scraper for organized manual data collection
 -   `[ ]` **Task:** Create ManualCollector class with session management and organized storage
 -   `[ ]` **Implementation:** Add support for multiple search terms and automatic JSON file organization
 -   `[ ]` **Testing:** Test manual collection process with sample search terms from 20urls.txt
@@ -51,7 +51,7 @@
 
 **Day 6 (Friday, August 1): Modular Architecture & Error Handling**
 
--   `[ ]` **Goal:** Implement the full architecture from `architecture.md`
+- **Goal:** Implement the full architecture from `architecture.md`
 -   `[ ]` **Task:** Refactor POC into modular structure:
     -   `scrapers/powerbuy_scraper.py` - Core scraping logic
     -   `parsers/` - JSON data extraction functions
@@ -70,19 +70,19 @@
 
 **Day 8 (Tuesday, August 5): Full Data Collection & Processing**
 
--   `[ ]` **Goal:** Collect complete dataset using manual collection tool.
+- **Goal:** Collect complete dataset using manual collection tool.
 -   `[ ]` **Task:** (After Chaiwat's simulated "Looks great!" reply) Use enhanced manual collector to gather data from all 20 search terms.
 -   `[ ]` **Task:** Run producer component to process all collected JSON data into final CSV file.
 
 **Day 9 (Wednesday, August 6): Quality Assurance**
 
--   `[ ]` **Goal:** Ensure the final deliverable is flawless.
+- **Goal:** Ensure the final deliverable is flawless.
 -   `[ ]` **Task:** Perform a final quality check on the full dataset. Look for any inconsistencies or missing values that your error handling might have caught.
 -   `[ ]` **Task:** Finalize the data and name the file `competitor_prices_2025-08-08.csv`.
 
 **Day 10 (Thursday, August 7): Prepare Professional Package**
 
--   `[ ]` **Goal:** Go beyond expectations with the final delivery.
+- **Goal:** Go beyond expectations with the final delivery.
 -   `[ ]` **Task:** Write the **Project Handoff Report**. Use the template from our simulation. This professional document is a key part of your premium service.
 -   `[ ]` **Task:** Create a ZIP file containing both the final CSV and the PDF report.
 
