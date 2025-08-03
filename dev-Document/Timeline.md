@@ -44,21 +44,21 @@
 **Day 5 (Thursday, July 31): Enhanced Manual Collection Tool**
 
 -   **Goal:** Enhance POC scraper for organized manual data collection
--   `[ ]` **Task:** Create ManualCollector class with session management and organized storage
--   `[ ]` **Implementation:** Add support for multiple search terms and automatic JSON file organization
--   `[ ]` **Testing:** Test manual collection process with sample search terms from 20urls.txt
--   `[ ]` **Output:** Generate organized raw JSON files for producer component processing
+-   `[x]` **Task:** Create ManualCollector class with session management and organized storage
+-   `[x]` **Implementation:** Add support for multiple search terms and automatic JSON file organization
+-   `[x]` **Testing:** Test manual collection process with sample search terms from 20urls.txt
+-   `[x]` **Output:** Generate organized raw JSON files for producer component processing
 
 **Day 6 (Friday, August 1): Modular Architecture & Error Handling**
 
 - **Goal:** Implement the full architecture from `architecture.md`
--   `[ ]` **Task:** Refactor POC into modular structure:
+-   `[x]` **Task:** Refactor POC into modular structure:
     -   `scrapers/powerbuy_scraper.py` - Core scraping logic
     -   `parsers/` - JSON data extraction functions
     -   `validators/` - Pydantic models
     -   `main.py` - Orchestration script
--   `[ ]` **Error Handling:** Add `try...except` blocks for production reliability
--   `[ ]` **CSV Enhancement:** Implement Pandas for final data export as specified in architecture
+-   `[x]` **Error Handling:** Add `try...except` blocks for production reliability
+-   `[x]` **CSV Enhancement:** Implement Pandas for final data export as specified in architecture
 
 ---
 
