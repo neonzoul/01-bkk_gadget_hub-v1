@@ -1,0 +1,202 @@
+{
+  "report_timestamp": "2025-08-05T16:47:45.006001",
+  "dataset_overview": {
+    "csv_file": "output/competitor_prices_complete_2025-08-05.csv",
+    "total_records": 188,
+    "total_columns": 6,
+    "file_size_mb": 0.02,
+    "processing_summary": {
+      "generation_date": "2025-08-05T16:41:23.984836",
+      "final_csv_file": "competitor_prices_2025-08-05.csv",
+      "processing_summary": {
+        "total_files_processed": 36,
+        "total_products_extracted": 319,
+        "successful_validations": 317,
+        "validation_failures": 2,
+        "duplicates_removed": 129,
+        "final_product_count": 188
+      },
+      "data_quality": {
+        "validation_success_rate": "99.4%",
+        "deduplication_rate": "40.7%",
+        "final_success_rate": "58.9%"
+      },
+      "stock_distribution": {
+        "in_stock": 13,
+        "out_of_stock": 175,
+        "in_stock_percentage": "6.9%"
+      },
+      "price_statistics": {
+        "min_price_thb": "144.00",
+        "max_price_thb": "119990.00",
+        "average_price_thb": "17048.28",
+        "median_price_thb": "10490.00"
+      },
+      "file_info": {
+        "file_size_kb": "21.6",
+        "encoding": "UTF-8",
+        "columns": [
+          "Name",
+          "SKU",
+          "Price",
+          "Stock Status",
+          "Source",
+          "Price_Numeric"
+        ],
+        "total_rows": 188
+      }
+    }
+  },
+  "quality_score": 72.73,
+  "quality_grade": "C (Needs Improvement)",
+  "completeness_analysis": {
+    "total_records": 188,
+    "missing_values": {
+      "Name": 0,
+      "SKU": 0,
+      "Price": 0,
+      "Stock Status": 0,
+      "Source": 0
+    },
+    "empty_strings": {
+      "Name": 0,
+      "SKU": 0,
+      "Price": 0,
+      "Stock Status": 0,
+      "Source": 0
+    },
+    "null_percentages": {
+      "Name": 0.0,
+      "SKU": 0.0,
+      "Price": 0.0,
+      "Stock Status": 0.0,
+      "Source": 0.0
+    }
+  },
+  "consistency_analysis": {
+    "price_validation": {
+      "negative_prices": 0,
+      "zero_prices": 0,
+      "invalid_prices": 0,
+      "min_price": 144.0,
+      "max_price": 119990.0,
+      "avg_price": 17048.28
+    },
+    "sku_validation": {
+      "duplicate_skus": 0,
+      "empty_skus": 0,
+      "unique_skus": 188,
+      "total_skus": 188
+    },
+    "stock_status_validation": {
+      "stock_distribution": {
+        "Out of Stock": 175,
+        "In Stock": 13
+      },
+      "invalid_stock_values": {}
+    },
+    "name_validation": {
+      "empty_names": 0,
+      "duplicate_names": 0,
+      "unique_names": 188,
+      "avg_name_length": 50.15
+    }
+  },
+  "format_analysis": {
+    "encoding_issues": [],
+    "thai_character_support": true,
+    "special_characters": {}
+  },
+  "business_rules_analysis": {
+    "source_validation": {
+      "sources": {
+        "powerbuy.co.th": 188
+      },
+      "expected_source": "powerbuy.co.th"
+    },
+    "price_range_validation": {
+      "very_cheap_products": 0,
+      "very_expensive_products": 1,
+      "price_distribution": {
+        "under_1000": 38,
+        "1000_to_10000": 56,
+        "10000_to_50000": 88,
+        "over_50000": 6
+      }
+    },
+    "product_category_analysis": {
+      "iphone_products": 86,
+      "samsung_products": 63,
+      "other_products": 39
+    }
+  },
+  "error_handling_analysis": {
+    "log_files_found": [
+      "logs\\collection_20250730_141614.log",
+      "logs\\collection_20250730_143955.log",
+      "logs\\collection_20250730_144200.log",
+      "logs\\collection_20250730_144220.log",
+      "logs\\collection_20250730_150001.log",
+      "logs\\collection_20250730_150938.log",
+      "logs\\collection_20250730_151022.log",
+      "logs\\collection_20250731_101354.log",
+      "logs\\manual_collection_20250805_161133.log",
+      "logs\\manual_collection_20250805_161311.log",
+      "logs\\producer_run_20250805_162854.log",
+      "logs\\producer_run_20250805_164040.log",
+      "logs\\quality_check_20250805_164727.log",
+      "logs\\quality_check_20250805_164744.log"
+    ],
+    "errors_logged": [],
+    "warnings_logged": [
+      "2025-08-05 16:40:40,903 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Apple iPhone 16_20250805_161532.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,903 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Apple iPhone 16_20250805_161532.json",
+      "2025-08-05 16:40:40,903 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Asus ROG Phone 9 Pro_20250805_161601.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,903 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Asus ROG Phone 9 Pro_20250805_161601.json",
+      "2025-08-05 16:40:40,904 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Google Pixel 9 Pro XL_20250805_161434.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,904 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Google Pixel 9 Pro XL_20250805_161434.json",
+      "2025-08-05 16:40:40,904 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Google Pixel 9 Pro_20250805_161424.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,904 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Google Pixel 9 Pro_20250805_161424.json",
+      "2025-08-05 16:40:40,904 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Google Pixel 9a_20250805_161414.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,905 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Google Pixel 9a_20250805_161414.json",
+      "2025-08-05 16:40:40,905 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\iPhone 16 Pro Max_20250805_161345.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,905 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\iPhone 16 Pro Max_20250805_161345.json",
+      "2025-08-05 16:40:40,905 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\iPhone SE_20250805_161610.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,906 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\iPhone SE_20250805_161610.json",
+      "2025-08-05 16:40:40,906 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Motorola Razr 60 Ultra_20250805_161452.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,906 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Motorola Razr 60 Ultra_20250805_161452.json",
+      "2025-08-05 16:40:40,906 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\OnePlus 13_20250805_161355.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,907 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\OnePlus 13_20250805_161355.json",
+      "2025-08-05 16:40:40,910 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Samsung Galaxy S25 Plus_20250805_161551.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,911 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Samsung Galaxy S25 Plus_20250805_161551.json",
+      "2025-08-05 16:40:40,911 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Samsung Galaxy S25 Ultra_20250805_161335.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,911 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Samsung Galaxy S25 Ultra_20250805_161335.json",
+      "2025-08-05 16:40:40,911 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Samsung Galaxy S25_20250805_161405.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,912 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Samsung Galaxy S25_20250805_161405.json",
+      "2025-08-05 16:40:40,912 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Samsung Galaxy Z Flip 7_20250805_161542.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,912 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Samsung Galaxy Z Flip 7_20250805_161542.json",
+      "2025-08-05 16:40:40,912 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Samsung Galaxy Z Fold 7_20250805_161442.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,912 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Samsung Galaxy Z Fold 7_20250805_161442.json",
+      "2025-08-05 16:40:40,914 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\\search_results\\Xiaomi 15 Ultra_20250805_161502.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']",
+      "2025-08-05 16:40:40,914 - src.producers.data_producer - WARNING - No products found in raw_data\\search_results\\Xiaomi 15 Ultra_20250805_161502.json",
+      "2025-08-05 16:40:40,931 - src.parsers.powerbuy_parser - WARNING - Transformation failed for product TEST001: Price parsing failed for SKU TEST001: Price is None",
+      "2025-08-05 16:40:40,931 - src.parsers.powerbuy_parser - WARNING - Transformation failed for product TEST: Price parsing failed for SKU TEST: Price is None",
+      "2025-08-05 16:40:40,955 - __main__ - WARNING - Total errors encountered: 2",
+      "2025-08-05 16:40:40,955 - __main__ - WARNING - Recent errors:",
+      "2025-08-05 16:40:40,955 - __main__ - WARNING -   - Transformation failed for product TEST001: Price parsing failed for SKU TEST001: Price is None",
+      "2025-08-05 16:40:40,955 - __main__ - WARNING -   - Transformation failed for product TEST: Price parsing failed for SKU TEST: Price is None"
+    ],
+    "error_handling_effectiveness": {
+      "total_errors_logged": 0,
+      "total_warnings_logged": 36,
+      "error_handling_active": true
+    }
+  },
+  "quality_issues": [],
+  "recommendations": [
+    "Dataset quality is excellent - no major issues found",
+    "Continue monitoring data quality with regular checks",
+    "Implement automated validation in the data pipeline",
+    "Consider adding more comprehensive error handling for edge cases"
+  ]
+}
