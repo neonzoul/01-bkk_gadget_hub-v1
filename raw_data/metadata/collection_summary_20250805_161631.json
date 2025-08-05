@@ -1,0 +1,45 @@
+{
+  "collection_timestamp": "2025-08-05T16:16:31.459319",
+  "total_search_terms": 17,
+  "successful_collections": 15,
+  "failed_collections": 2,
+  "success_rate": 88.23529411764706,
+  "successful_terms": [
+    "Samsung Galaxy S25 Ultra",
+    "iPhone 16 Pro Max",
+    "OnePlus 13",
+    "Samsung Galaxy S25",
+    "Google Pixel 9a",
+    "Google Pixel 9 Pro",
+    "Google Pixel 9 Pro XL",
+    "Samsung Galaxy Z Fold 7",
+    "Motorola Razr 60 Ultra",
+    "Xiaomi 15 Ultra",
+    "Apple iPhone 16",
+    "Samsung Galaxy Z Flip 7",
+    "Samsung Galaxy S25 Plus",
+    "Asus ROG Phone 9 Pro",
+    "iPhone SE"
+  ],
+  "failed_terms": [
+    "Oppo Find X8 Pro",
+    "samsung galaxy a13"
+  ],
+  "result_files": {
+    "Samsung Galaxy S25 Ultra": "raw_data\\search_results\\Samsung Galaxy S25 Ultra_20250805_161335.json",
+    "iPhone 16 Pro Max": "raw_data\\search_results\\iPhone 16 Pro Max_20250805_161345.json",
+    "OnePlus 13": "raw_data\\search_results\\OnePlus 13_20250805_161355.json",
+    "Samsung Galaxy S25": "raw_data\\search_results\\Samsung Galaxy S25_20250805_161405.json",
+    "Google Pixel 9a": "raw_data\\search_results\\Google Pixel 9a_20250805_161414.json",
+    "Google Pixel 9 Pro": "raw_data\\search_results\\Google Pixel 9 Pro_20250805_161424.json",
+    "Google Pixel 9 Pro XL": "raw_data\\search_results\\Google Pixel 9 Pro XL_20250805_161434.json",
+    "Samsung Galaxy Z Fold 7": "raw_data\\search_results\\Samsung Galaxy Z Fold 7_20250805_161442.json",
+    "Motorola Razr 60 Ultra": "raw_data\\search_results\\Motorola Razr 60 Ultra_20250805_161452.json",
+    "Xiaomi 15 Ultra": "raw_data\\search_results\\Xiaomi 15 Ultra_20250805_161502.json",
+    "Apple iPhone 16": "raw_data\\search_results\\Apple iPhone 16_20250805_161532.json",
+    "Samsung Galaxy Z Flip 7": "raw_data\\search_results\\Samsung Galaxy Z Flip 7_20250805_161542.json",
+    "Samsung Galaxy S25 Plus": "raw_data\\search_results\\Samsung Galaxy S25 Plus_20250805_161551.json",
+    "Asus ROG Phone 9 Pro": "raw_data\\search_results\\Asus ROG Phone 9 Pro_20250805_161601.json",
+    "iPhone SE": "raw_data\\search_results\\iPhone SE_20250805_161610.json"
+  }
+}

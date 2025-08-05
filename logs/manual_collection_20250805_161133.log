@@ -1,0 +1,51 @@
+2025-08-05 16:11:33,198 - __main__ - INFO - Starting manual collection process for all 20 search terms
+2025-08-05 16:11:33,199 - __main__ - INFO - Configuration loaded successfully
+2025-08-05 16:11:33,199 - __main__ - INFO - Extracted search term: Samsung Galaxy S25 Ultra
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: iPhone 16 Pro Max
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: OnePlus 13
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: Samsung Galaxy S25
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: Google Pixel 9a
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: Google Pixel 9 Pro
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: Google Pixel 9 Pro XL
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: Samsung Galaxy Z Fold 7
+2025-08-05 16:11:33,200 - __main__ - INFO - Extracted search term: Motorola Razr 60 Ultra
+2025-08-05 16:11:33,201 - __main__ - INFO - Extracted search term: Xiaomi 15 Ultra
+2025-08-05 16:11:33,201 - __main__ - INFO - Extracted search term: Oppo Find X8 Pro
+2025-08-05 16:11:33,201 - __main__ - INFO - Extracted search term: Apple iPhone 16
+2025-08-05 16:11:33,201 - __main__ - INFO - Extracted search term: Samsung Galaxy Z Flip 7
+2025-08-05 16:11:33,201 - __main__ - INFO - Extracted search term: Samsung Galaxy S25 Plus
+2025-08-05 16:11:33,201 - __main__ - INFO - Extracted search term: Asus ROG Phone 9 Pro
+2025-08-05 16:11:33,202 - __main__ - INFO - Extracted search term: iPhone SE
+2025-08-05 16:11:33,202 - __main__ - INFO - Extracted search term: samsung galaxy a13
+2025-08-05 16:11:33,202 - __main__ - INFO - Total unique search terms extracted: 17
+2025-08-05 16:11:33,202 - __main__ - INFO - Found 17 search terms to process:
+2025-08-05 16:11:33,202 - __main__ - INFO -   1. Samsung Galaxy S25 Ultra
+2025-08-05 16:11:33,202 - __main__ - INFO -   2. iPhone 16 Pro Max
+2025-08-05 16:11:33,202 - __main__ - INFO -   3. OnePlus 13
+2025-08-05 16:11:33,202 - __main__ - INFO -   4. Samsung Galaxy S25
+2025-08-05 16:11:33,203 - __main__ - INFO -   5. Google Pixel 9a
+2025-08-05 16:11:33,203 - __main__ - INFO -   6. Google Pixel 9 Pro
+2025-08-05 16:11:33,203 - __main__ - INFO -   7. Google Pixel 9 Pro XL
+2025-08-05 16:11:33,203 - __main__ - INFO -   8. Samsung Galaxy Z Fold 7
+2025-08-05 16:11:33,203 - __main__ - INFO -   9. Motorola Razr 60 Ultra
+2025-08-05 16:11:33,203 - __main__ - INFO -   10. Xiaomi 15 Ultra
+2025-08-05 16:11:33,203 - __main__ - INFO -   11. Oppo Find X8 Pro
+2025-08-05 16:11:33,203 - __main__ - INFO -   12. Apple iPhone 16
+2025-08-05 16:11:33,204 - __main__ - INFO -   13. Samsung Galaxy Z Flip 7
+2025-08-05 16:11:33,204 - __main__ - INFO -   14. Samsung Galaxy S25 Plus
+2025-08-05 16:11:33,204 - __main__ - INFO -   15. Asus ROG Phone 9 Pro
+2025-08-05 16:11:33,204 - __main__ - INFO -   16. iPhone SE
+2025-08-05 16:11:33,204 - __main__ - INFO -   17. samsung galaxy a13
+2025-08-05 16:11:33,204 - __main__ - INFO - Initializing ManualCollector...
+2025-08-05 16:11:33,205 - __main__ - INFO - Scraper configuration: {'scraper_core': {'base_url': 'https://www.powerbuy.co.th', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 'user_data_dir': 'user_data', 'page_timeout': 60000, 'network_timeout': 30000, 'scraper_version': 'powerbuy_scraper_v1.0'}, 'directories': {'search_results': 'raw_data\\search_results', 'individual_products': 'raw_data\\individual_products'}, 'session_active': False}
+2025-08-05 16:11:33,205 - __main__ - INFO - Starting data collection process...
+2025-08-05 16:11:33,205 - scrapers.powerbuy_scraper - INFO - Starting collection for 17 search terms
+2025-08-05 16:11:33,205 - __main__ - INFO - PROGRESS: Starting collection for 17 search terms
+2025-08-05 16:11:36,414 - scrapers.powerbuy_scraper - INFO - Setting up browser context with anti-detection measures
+2025-08-05 16:11:37,929 - scrapers.powerbuy_scraper - INFO - Browser context created with user data dir: user_data
+2025-08-05 16:11:37,929 - scrapers.powerbuy_scraper - INFO - Navigating to PowerBuy homepage
+2025-08-05 16:12:08,424 - scrapers.powerbuy_scraper - ERROR - Critical error during collection: Timeout 30000ms exceeded.
+2025-08-05 16:12:08,718 - scrapers.powerbuy_scraper - INFO - Collection completed. Successfully processed 0 out of 17 search terms
+2025-08-05 16:12:08,719 - __main__ - INFO - PROGRESS: Collection completed: 0/17 successful
+2025-08-05 16:12:08,720 - __main__ - INFO - Collection summary saved to: raw_data\metadata\collection_summary_20250805_161208.json
+2025-08-05 16:12:08,725 - __main__ - INFO - Manual collection process completed successfully

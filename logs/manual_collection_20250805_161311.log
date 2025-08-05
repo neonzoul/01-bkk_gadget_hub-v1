@@ -1,0 +1,492 @@
+2025-08-05 16:13:11,659 - __main__ - INFO - Starting manual collection process for all 20 search terms
+2025-08-05 16:13:11,660 - __main__ - INFO - Configuration loaded successfully
+2025-08-05 16:13:11,660 - __main__ - INFO - Extracted search term: Samsung Galaxy S25 Ultra
+2025-08-05 16:13:11,661 - __main__ - INFO - Extracted search term: iPhone 16 Pro Max
+2025-08-05 16:13:11,661 - __main__ - INFO - Extracted search term: OnePlus 13
+2025-08-05 16:13:11,661 - __main__ - INFO - Extracted search term: Samsung Galaxy S25
+2025-08-05 16:13:11,661 - __main__ - INFO - Extracted search term: Google Pixel 9a
+2025-08-05 16:13:11,661 - __main__ - INFO - Extracted search term: Google Pixel 9 Pro
+2025-08-05 16:13:11,662 - __main__ - INFO - Extracted search term: Google Pixel 9 Pro XL
+2025-08-05 16:13:11,662 - __main__ - INFO - Extracted search term: Samsung Galaxy Z Fold 7
+2025-08-05 16:13:11,662 - __main__ - INFO - Extracted search term: Motorola Razr 60 Ultra
+2025-08-05 16:13:11,662 - __main__ - INFO - Extracted search term: Xiaomi 15 Ultra
+2025-08-05 16:13:11,662 - __main__ - INFO - Extracted search term: Oppo Find X8 Pro
+2025-08-05 16:13:11,662 - __main__ - INFO - Extracted search term: Apple iPhone 16
+2025-08-05 16:13:11,663 - __main__ - INFO - Extracted search term: Samsung Galaxy Z Flip 7
+2025-08-05 16:13:11,663 - __main__ - INFO - Extracted search term: Samsung Galaxy S25 Plus
+2025-08-05 16:13:11,663 - __main__ - INFO - Extracted search term: Asus ROG Phone 9 Pro
+2025-08-05 16:13:11,663 - __main__ - INFO - Extracted search term: iPhone SE
+2025-08-05 16:13:11,663 - __main__ - INFO - Extracted search term: samsung galaxy a13
+2025-08-05 16:13:11,663 - __main__ - INFO - Total unique search terms extracted: 17
+2025-08-05 16:13:11,663 - __main__ - INFO - Found 17 search terms to process:
+2025-08-05 16:13:11,664 - __main__ - INFO -   1. Samsung Galaxy S25 Ultra
+2025-08-05 16:13:11,664 - __main__ - INFO -   2. iPhone 16 Pro Max
+2025-08-05 16:13:11,664 - __main__ - INFO -   3. OnePlus 13
+2025-08-05 16:13:11,664 - __main__ - INFO -   4. Samsung Galaxy S25
+2025-08-05 16:13:11,664 - __main__ - INFO -   5. Google Pixel 9a
+2025-08-05 16:13:11,664 - __main__ - INFO -   6. Google Pixel 9 Pro
+2025-08-05 16:13:11,664 - __main__ - INFO -   7. Google Pixel 9 Pro XL
+2025-08-05 16:13:11,665 - __main__ - INFO -   8. Samsung Galaxy Z Fold 7
+2025-08-05 16:13:11,665 - __main__ - INFO -   9. Motorola Razr 60 Ultra
+2025-08-05 16:13:11,665 - __main__ - INFO -   10. Xiaomi 15 Ultra
+2025-08-05 16:13:11,665 - __main__ - INFO -   11. Oppo Find X8 Pro
+2025-08-05 16:13:11,665 - __main__ - INFO -   12. Apple iPhone 16
+2025-08-05 16:13:11,665 - __main__ - INFO -   13. Samsung Galaxy Z Flip 7
+2025-08-05 16:13:11,665 - __main__ - INFO -   14. Samsung Galaxy S25 Plus
+2025-08-05 16:13:11,665 - __main__ - INFO -   15. Asus ROG Phone 9 Pro
+2025-08-05 16:13:11,666 - __main__ - INFO -   16. iPhone SE
+2025-08-05 16:13:11,666 - __main__ - INFO -   17. samsung galaxy a13
+2025-08-05 16:13:11,666 - __main__ - INFO - Initializing ManualCollector...
+2025-08-05 16:13:11,666 - __main__ - INFO - Scraper configuration: {'scraper_core': {'base_url': 'https://www.powerbuy.co.th', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 'user_data_dir': 'user_data', 'page_timeout': 90000, 'network_timeout': 60000, 'scraper_version': 'powerbuy_scraper_v1.0'}, 'directories': {'search_results': 'raw_data\\search_results', 'individual_products': 'raw_data\\individual_products'}, 'session_active': False}
+2025-08-05 16:13:11,666 - __main__ - INFO - Starting data collection process...
+2025-08-05 16:13:11,667 - scrapers.powerbuy_scraper - INFO - Starting collection for 17 search terms
+2025-08-05 16:13:11,667 - __main__ - INFO - PROGRESS: Starting collection for 17 search terms
+2025-08-05 16:13:12,086 - scrapers.powerbuy_scraper - INFO - Setting up browser context with anti-detection measures
+2025-08-05 16:13:12,507 - scrapers.powerbuy_scraper - INFO - Browser context created with user data dir: user_data
+2025-08-05 16:13:12,507 - scrapers.powerbuy_scraper - INFO - Navigating to PowerBuy homepage
+2025-08-05 16:13:12,507 - scrapers.powerbuy_scraper - INFO - Navigation attempt 1/3
+2025-08-05 16:13:18,553 - scrapers.powerbuy_scraper - INFO - Successfully navigated to PowerBuy homepage
+2025-08-05 16:13:18,553 - scrapers.powerbuy_scraper - INFO - Looking for cookie banner
+2025-08-05 16:13:28,576 - scrapers.powerbuy_scraper - INFO - Cookie banner not found or already accepted
+2025-08-05 16:13:28,576 - scrapers.powerbuy_scraper - INFO - Processing search term 1/17: Samsung Galaxy S25 Ultra
+2025-08-05 16:13:28,576 - __main__ - INFO - PROGRESS: Processing Samsung Galaxy S25 Ultra (1/17)
+2025-08-05 16:13:28,577 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Samsung Galaxy S25 Ultra
+2025-08-05 16:13:28,577 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Samsung Galaxy S25 Ultra
+2025-08-05 16:13:28,578 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:13:28,578 - scrapers.powerbuy_scraper - INFO - Performing search for: Samsung Galaxy S25 Ultra
+2025-08-05 16:13:28,578 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:13:28,583 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:13:28,715 - scrapers.powerbuy_scraper - INFO - Search submitted for: Samsung Galaxy S25 Ultra
+2025-08-05 16:13:28,716 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:13:28,717 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/iphone
+2025-08-05 16:13:28,718 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:13:29,077 - scrapers.powerbuy_scraper - INFO - Intercepted 25 products from API response
+2025-08-05 16:13:35,606 - scrapers.powerbuy_scraper - INFO - Validation passed: 25/25 products have required fields
+2025-08-05 16:13:35,609 - scrapers.powerbuy_scraper - INFO - Saved 25 products to: raw_data\search_results\Samsung Galaxy S25 Ultra_20250805_161335.json
+2025-08-05 16:13:35,610 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Samsung Galaxy S25 Ultra
+2025-08-05 16:13:37,610 - scrapers.powerbuy_scraper - INFO - Processing search term 2/17: iPhone 16 Pro Max
+2025-08-05 16:13:37,610 - __main__ - INFO - PROGRESS: Processing iPhone 16 Pro Max (2/17)
+2025-08-05 16:13:37,611 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: iPhone 16 Pro Max
+2025-08-05 16:13:37,611 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: iPhone 16 Pro Max
+2025-08-05 16:13:37,611 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:13:37,611 - scrapers.powerbuy_scraper - INFO - Performing search for: iPhone 16 Pro Max
+2025-08-05 16:13:37,612 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:13:37,616 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:13:37,732 - scrapers.powerbuy_scraper - INFO - Search submitted for: iPhone 16 Pro Max
+2025-08-05 16:13:37,732 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:13:37,734 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Samsung%20Galaxy%20S25%20Ultra
+2025-08-05 16:13:37,734 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:13:38,168 - scrapers.powerbuy_scraper - INFO - Intercepted 24 products from API response
+2025-08-05 16:13:38,178 - scrapers.powerbuy_scraper - INFO - Intercepted 24 products from API response
+2025-08-05 16:13:45,373 - scrapers.powerbuy_scraper - INFO - Validation passed: 24/24 products have required fields
+2025-08-05 16:13:45,377 - scrapers.powerbuy_scraper - INFO - Saved 24 products to: raw_data\search_results\iPhone 16 Pro Max_20250805_161345.json
+2025-08-05 16:13:45,377 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: iPhone 16 Pro Max
+2025-08-05 16:13:47,377 - scrapers.powerbuy_scraper - INFO - Processing search term 3/17: OnePlus 13
+2025-08-05 16:13:47,378 - __main__ - INFO - PROGRESS: Processing OnePlus 13 (3/17)
+2025-08-05 16:13:47,378 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: OnePlus 13
+2025-08-05 16:13:47,378 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: OnePlus 13
+2025-08-05 16:13:47,379 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:13:47,379 - scrapers.powerbuy_scraper - INFO - Performing search for: OnePlus 13
+2025-08-05 16:13:47,379 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:13:47,383 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:13:47,498 - scrapers.powerbuy_scraper - INFO - Search submitted for: OnePlus 13
+2025-08-05 16:13:47,498 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:13:47,499 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/iPhone%2016%20Pro%20Max
+2025-08-05 16:13:47,500 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:13:48,911 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:13:48,931 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:13:48,952 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:13:55,172 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:13:55,179 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\OnePlus 13_20250805_161355.json
+2025-08-05 16:13:55,180 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: OnePlus 13
+2025-08-05 16:13:57,180 - scrapers.powerbuy_scraper - INFO - Processing search term 4/17: Samsung Galaxy S25
+2025-08-05 16:13:57,180 - __main__ - INFO - PROGRESS: Processing Samsung Galaxy S25 (4/17)
+2025-08-05 16:13:57,181 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Samsung Galaxy S25
+2025-08-05 16:13:57,181 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Samsung Galaxy S25
+2025-08-05 16:13:57,181 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:13:57,181 - scrapers.powerbuy_scraper - INFO - Performing search for: Samsung Galaxy S25
+2025-08-05 16:13:57,182 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:13:57,189 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:13:57,351 - scrapers.powerbuy_scraper - INFO - Search submitted for: Samsung Galaxy S25
+2025-08-05 16:13:57,352 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:13:57,354 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/OnePlus%2013
+2025-08-05 16:13:57,354 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:13:57,818 - scrapers.powerbuy_scraper - INFO - Intercepted 35 products from API response
+2025-08-05 16:13:57,827 - scrapers.powerbuy_scraper - INFO - Intercepted 35 products from API response
+2025-08-05 16:13:57,835 - scrapers.powerbuy_scraper - INFO - Intercepted 35 products from API response
+2025-08-05 16:13:57,843 - scrapers.powerbuy_scraper - INFO - Intercepted 35 products from API response
+2025-08-05 16:14:05,041 - scrapers.powerbuy_scraper - INFO - Validation passed: 35/35 products have required fields
+2025-08-05 16:14:05,045 - scrapers.powerbuy_scraper - INFO - Saved 35 products to: raw_data\search_results\Samsung Galaxy S25_20250805_161405.json
+2025-08-05 16:14:05,046 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Samsung Galaxy S25
+2025-08-05 16:14:07,046 - scrapers.powerbuy_scraper - INFO - Processing search term 5/17: Google Pixel 9a
+2025-08-05 16:14:07,047 - __main__ - INFO - PROGRESS: Processing Google Pixel 9a (5/17)
+2025-08-05 16:14:07,047 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Google Pixel 9a
+2025-08-05 16:14:07,047 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Google Pixel 9a
+2025-08-05 16:14:07,047 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:14:07,047 - scrapers.powerbuy_scraper - INFO - Performing search for: Google Pixel 9a
+2025-08-05 16:14:07,048 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:14:07,052 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:14:07,162 - scrapers.powerbuy_scraper - INFO - Search submitted for: Google Pixel 9a
+2025-08-05 16:14:07,162 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:14:07,164 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Samsung%20Galaxy%20S25
+2025-08-05 16:14:07,164 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:14:08,279 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:08,335 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:08,400 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:08,456 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:08,536 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:14,445 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:14:14,458 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\Google Pixel 9a_20250805_161414.json
+2025-08-05 16:14:14,458 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Google Pixel 9a
+2025-08-05 16:14:16,459 - scrapers.powerbuy_scraper - INFO - Processing search term 6/17: Google Pixel 9 Pro
+2025-08-05 16:14:16,459 - __main__ - INFO - PROGRESS: Processing Google Pixel 9 Pro (6/17)
+2025-08-05 16:14:16,460 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Google Pixel 9 Pro
+2025-08-05 16:14:16,460 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Google Pixel 9 Pro
+2025-08-05 16:14:16,460 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:14:16,460 - scrapers.powerbuy_scraper - INFO - Performing search for: Google Pixel 9 Pro
+2025-08-05 16:14:16,460 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:14:16,466 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:14:16,593 - scrapers.powerbuy_scraper - INFO - Search submitted for: Google Pixel 9 Pro
+2025-08-05 16:14:16,594 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:14:16,595 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Google%20Pixel%209a
+2025-08-05 16:14:16,595 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:14:17,833 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:17,863 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:17,890 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:17,917 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:17,942 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:17,971 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:24,414 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:14:24,423 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\Google Pixel 9 Pro_20250805_161424.json
+2025-08-05 16:14:24,423 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Google Pixel 9 Pro
+2025-08-05 16:14:26,424 - scrapers.powerbuy_scraper - INFO - Processing search term 7/17: Google Pixel 9 Pro XL
+2025-08-05 16:14:26,424 - __main__ - INFO - PROGRESS: Processing Google Pixel 9 Pro XL (7/17)
+2025-08-05 16:14:26,425 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Google Pixel 9 Pro XL
+2025-08-05 16:14:26,425 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Google Pixel 9 Pro XL
+2025-08-05 16:14:26,425 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:14:26,425 - scrapers.powerbuy_scraper - INFO - Performing search for: Google Pixel 9 Pro XL
+2025-08-05 16:14:26,425 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:14:26,431 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:14:26,603 - scrapers.powerbuy_scraper - INFO - Search submitted for: Google Pixel 9 Pro XL
+2025-08-05 16:14:26,603 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:14:26,605 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Google%20Pixel%209%20Pro
+2025-08-05 16:14:26,605 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:14:27,822 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:27,852 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:27,881 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:27,912 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:27,942 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:27,969 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:27,997 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:34,008 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:14:34,017 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\Google Pixel 9 Pro XL_20250805_161434.json
+2025-08-05 16:14:34,017 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Google Pixel 9 Pro XL
+2025-08-05 16:14:36,018 - scrapers.powerbuy_scraper - INFO - Processing search term 8/17: Samsung Galaxy Z Fold 7
+2025-08-05 16:14:36,018 - __main__ - INFO - PROGRESS: Processing Samsung Galaxy Z Fold 7 (8/17)
+2025-08-05 16:14:36,018 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Samsung Galaxy Z Fold 7
+2025-08-05 16:14:36,019 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Samsung Galaxy Z Fold 7
+2025-08-05 16:14:36,019 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:14:36,019 - scrapers.powerbuy_scraper - INFO - Performing search for: Samsung Galaxy Z Fold 7
+2025-08-05 16:14:36,019 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:14:36,027 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:14:36,190 - scrapers.powerbuy_scraper - INFO - Search submitted for: Samsung Galaxy Z Fold 7
+2025-08-05 16:14:36,190 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:14:36,197 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Google%20Pixel%209%20Pro%20XL
+2025-08-05 16:14:36,198 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:14:36,434 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:36,438 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:36,440 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:36,443 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:36,446 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:36,447 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:36,449 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:36,452 - scrapers.powerbuy_scraper - INFO - Intercepted 5 products from API response
+2025-08-05 16:14:42,589 - scrapers.powerbuy_scraper - INFO - Validation passed: 5/5 products have required fields
+2025-08-05 16:14:42,591 - scrapers.powerbuy_scraper - INFO - Saved 5 products to: raw_data\search_results\Samsung Galaxy Z Fold 7_20250805_161442.json
+2025-08-05 16:14:42,591 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Samsung Galaxy Z Fold 7
+2025-08-05 16:14:44,592 - scrapers.powerbuy_scraper - INFO - Processing search term 9/17: Motorola Razr 60 Ultra
+2025-08-05 16:14:44,592 - __main__ - INFO - PROGRESS: Processing Motorola Razr 60 Ultra (9/17)
+2025-08-05 16:14:44,593 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Motorola Razr 60 Ultra
+2025-08-05 16:14:44,593 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Motorola Razr 60 Ultra
+2025-08-05 16:14:44,593 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:14:44,593 - scrapers.powerbuy_scraper - INFO - Performing search for: Motorola Razr 60 Ultra
+2025-08-05 16:14:44,593 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:14:44,596 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:14:44,707 - scrapers.powerbuy_scraper - INFO - Search submitted for: Motorola Razr 60 Ultra
+2025-08-05 16:14:44,707 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:14:44,709 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Samsung%20Galaxy%20Z%20Fold%207
+2025-08-05 16:14:44,709 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:14:45,725 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,739 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,750 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,762 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,774 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,785 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,797 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,809 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:45,822 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:52,004 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:14:52,010 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\Motorola Razr 60 Ultra_20250805_161452.json
+2025-08-05 16:14:52,010 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Motorola Razr 60 Ultra
+2025-08-05 16:14:54,011 - scrapers.powerbuy_scraper - INFO - Processing search term 10/17: Xiaomi 15 Ultra
+2025-08-05 16:14:54,011 - __main__ - INFO - PROGRESS: Processing Xiaomi 15 Ultra (10/17)
+2025-08-05 16:14:54,012 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Xiaomi 15 Ultra
+2025-08-05 16:14:54,012 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Xiaomi 15 Ultra
+2025-08-05 16:14:54,012 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:14:54,012 - scrapers.powerbuy_scraper - INFO - Performing search for: Xiaomi 15 Ultra
+2025-08-05 16:14:54,012 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:14:54,017 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:14:54,172 - scrapers.powerbuy_scraper - INFO - Search submitted for: Xiaomi 15 Ultra
+2025-08-05 16:14:54,172 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:14:54,174 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Motorola%20Razr%2060%20Ultra
+2025-08-05 16:14:54,174 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:14:55,690 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,707 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,728 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,747 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,765 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,782 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,804 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,823 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,849 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:14:55,875 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:02,829 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:15:02,837 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\Xiaomi 15 Ultra_20250805_161502.json
+2025-08-05 16:15:02,837 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Xiaomi 15 Ultra
+2025-08-05 16:15:04,838 - scrapers.powerbuy_scraper - INFO - Processing search term 11/17: Oppo Find X8 Pro
+2025-08-05 16:15:04,838 - __main__ - INFO - PROGRESS: Processing Oppo Find X8 Pro (11/17)
+2025-08-05 16:15:04,838 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Oppo Find X8 Pro
+2025-08-05 16:15:04,838 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Oppo Find X8 Pro
+2025-08-05 16:15:04,839 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:15:04,839 - scrapers.powerbuy_scraper - INFO - Performing search for: Oppo Find X8 Pro
+2025-08-05 16:15:04,839 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:15:04,844 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:15:05,000 - scrapers.powerbuy_scraper - INFO - Search submitted for: Oppo Find X8 Pro
+2025-08-05 16:15:05,002 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:15:05,004 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Xiaomi%2015%20Ultra
+2025-08-05 16:15:05,005 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:15:11,333 - scrapers.powerbuy_scraper - WARNING - No product data found for search term: Oppo Find X8 Pro
+2025-08-05 16:15:11,333 - scrapers.powerbuy_scraper - WARNING - No data collected for: Oppo Find X8 Pro (attempt 1)
+2025-08-05 16:15:11,334 - scrapers.powerbuy_scraper - INFO - Search attempt 2/3 for: Oppo Find X8 Pro
+2025-08-05 16:15:11,334 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Oppo Find X8 Pro
+2025-08-05 16:15:11,334 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:15:11,334 - scrapers.powerbuy_scraper - INFO - Performing search for: Oppo Find X8 Pro
+2025-08-05 16:15:11,334 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:15:11,342 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:15:11,406 - scrapers.powerbuy_scraper - INFO - Search submitted for: Oppo Find X8 Pro
+2025-08-05 16:15:11,406 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:15:11,407 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Oppo%20Find%20X8%20Pro
+2025-08-05 16:15:11,408 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:15:17,176 - scrapers.powerbuy_scraper - WARNING - No product data found for search term: Oppo Find X8 Pro
+2025-08-05 16:15:17,176 - scrapers.powerbuy_scraper - WARNING - No data collected for: Oppo Find X8 Pro (attempt 2)
+2025-08-05 16:15:17,176 - scrapers.powerbuy_scraper - INFO - Search attempt 3/3 for: Oppo Find X8 Pro
+2025-08-05 16:15:17,177 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Oppo Find X8 Pro
+2025-08-05 16:15:17,177 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:15:17,177 - scrapers.powerbuy_scraper - INFO - Performing search for: Oppo Find X8 Pro
+2025-08-05 16:15:17,177 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:15:17,181 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:15:17,244 - scrapers.powerbuy_scraper - INFO - Search submitted for: Oppo Find X8 Pro
+2025-08-05 16:15:17,244 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:15:17,246 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Oppo%20Find%20X8%20Pro
+2025-08-05 16:15:17,246 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:15:23,026 - scrapers.powerbuy_scraper - WARNING - No product data found for search term: Oppo Find X8 Pro
+2025-08-05 16:15:23,026 - scrapers.powerbuy_scraper - WARNING - No data collected for: Oppo Find X8 Pro (attempt 3)
+2025-08-05 16:15:23,026 - scrapers.powerbuy_scraper - ERROR - Failed to collect data for 'Oppo Find X8 Pro' after 3 attempts
+2025-08-05 16:15:25,027 - scrapers.powerbuy_scraper - INFO - Processing search term 12/17: Apple iPhone 16
+2025-08-05 16:15:25,027 - __main__ - INFO - PROGRESS: Processing Apple iPhone 16 (12/17)
+2025-08-05 16:15:25,028 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Apple iPhone 16
+2025-08-05 16:15:25,028 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Apple iPhone 16
+2025-08-05 16:15:25,028 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:15:25,028 - scrapers.powerbuy_scraper - INFO - Performing search for: Apple iPhone 16
+2025-08-05 16:15:25,028 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:15:25,031 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:15:25,148 - scrapers.powerbuy_scraper - INFO - Search submitted for: Apple iPhone 16
+2025-08-05 16:15:25,148 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:15:25,150 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Oppo%20Find%20X8%20Pro
+2025-08-05 16:15:25,152 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:15:25,733 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,741 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,748 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,756 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,763 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,769 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,775 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,782 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,792 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,799 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,808 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,814 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,821 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:25,827 - scrapers.powerbuy_scraper - INFO - Intercepted 32 products from API response
+2025-08-05 16:15:32,964 - scrapers.powerbuy_scraper - INFO - Validation passed: 32/32 products have required fields
+2025-08-05 16:15:32,969 - scrapers.powerbuy_scraper - INFO - Saved 32 products to: raw_data\search_results\Apple iPhone 16_20250805_161532.json
+2025-08-05 16:15:32,969 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Apple iPhone 16
+2025-08-05 16:15:34,970 - scrapers.powerbuy_scraper - INFO - Processing search term 13/17: Samsung Galaxy Z Flip 7
+2025-08-05 16:15:34,970 - __main__ - INFO - PROGRESS: Processing Samsung Galaxy Z Flip 7 (13/17)
+2025-08-05 16:15:34,970 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Samsung Galaxy Z Flip 7
+2025-08-05 16:15:34,970 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Samsung Galaxy Z Flip 7
+2025-08-05 16:15:34,971 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:15:34,971 - scrapers.powerbuy_scraper - INFO - Performing search for: Samsung Galaxy Z Flip 7
+2025-08-05 16:15:34,971 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:15:34,975 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:15:35,079 - scrapers.powerbuy_scraper - INFO - Search submitted for: Samsung Galaxy Z Flip 7
+2025-08-05 16:15:35,079 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:15:35,081 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Apple%20iPhone%2016
+2025-08-05 16:15:35,081 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:15:35,659 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,668 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,676 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,682 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,690 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,696 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,704 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,710 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,718 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,724 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,730 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,738 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,744 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,751 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:35,759 - scrapers.powerbuy_scraper - INFO - Intercepted 29 products from API response
+2025-08-05 16:15:42,962 - scrapers.powerbuy_scraper - INFO - Validation passed: 29/29 products have required fields
+2025-08-05 16:15:42,968 - scrapers.powerbuy_scraper - INFO - Saved 29 products to: raw_data\search_results\Samsung Galaxy Z Flip 7_20250805_161542.json
+2025-08-05 16:15:42,968 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Samsung Galaxy Z Flip 7
+2025-08-05 16:15:44,968 - scrapers.powerbuy_scraper - INFO - Processing search term 14/17: Samsung Galaxy S25 Plus
+2025-08-05 16:15:44,969 - __main__ - INFO - PROGRESS: Processing Samsung Galaxy S25 Plus (14/17)
+2025-08-05 16:15:44,969 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Samsung Galaxy S25 Plus
+2025-08-05 16:15:44,969 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Samsung Galaxy S25 Plus
+2025-08-05 16:15:44,970 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:15:44,970 - scrapers.powerbuy_scraper - INFO - Performing search for: Samsung Galaxy S25 Plus
+2025-08-05 16:15:44,970 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:15:44,973 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:15:45,094 - scrapers.powerbuy_scraper - INFO - Search submitted for: Samsung Galaxy S25 Plus
+2025-08-05 16:15:45,095 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:15:45,096 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Samsung%20Galaxy%20Z%20Flip%207
+2025-08-05 16:15:45,096 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:15:45,284 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,286 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,288 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,289 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,291 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,293 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,294 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,296 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,297 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,299 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,302 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,303 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,305 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,307 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,308 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:45,310 - scrapers.powerbuy_scraper - INFO - Intercepted 1 products from API response
+2025-08-05 16:15:51,446 - scrapers.powerbuy_scraper - INFO - Validation passed: 1/1 products have required fields
+2025-08-05 16:15:51,447 - scrapers.powerbuy_scraper - INFO - Saved 1 products to: raw_data\search_results\Samsung Galaxy S25 Plus_20250805_161551.json
+2025-08-05 16:15:51,447 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Samsung Galaxy S25 Plus
+2025-08-05 16:15:53,448 - scrapers.powerbuy_scraper - INFO - Processing search term 15/17: Asus ROG Phone 9 Pro
+2025-08-05 16:15:53,448 - __main__ - INFO - PROGRESS: Processing Asus ROG Phone 9 Pro (15/17)
+2025-08-05 16:15:53,449 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: Asus ROG Phone 9 Pro
+2025-08-05 16:15:53,449 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: Asus ROG Phone 9 Pro
+2025-08-05 16:15:53,449 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:15:53,449 - scrapers.powerbuy_scraper - INFO - Performing search for: Asus ROG Phone 9 Pro
+2025-08-05 16:15:53,450 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:15:53,452 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:15:53,544 - scrapers.powerbuy_scraper - INFO - Search submitted for: Asus ROG Phone 9 Pro
+2025-08-05 16:15:53,544 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:15:53,546 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Samsung%20Galaxy%20S25%20Plus
+2025-08-05 16:15:53,546 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:15:54,823 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:54,847 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:54,872 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:54,894 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:54,919 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:54,946 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:54,975 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:54,999 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,023 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,084 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,114 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,144 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,170 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,190 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,211 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,232 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:15:55,256 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:01,488 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:16:01,496 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\Asus ROG Phone 9 Pro_20250805_161601.json
+2025-08-05 16:16:01,497 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: Asus ROG Phone 9 Pro
+2025-08-05 16:16:03,497 - scrapers.powerbuy_scraper - INFO - Processing search term 16/17: iPhone SE
+2025-08-05 16:16:03,498 - __main__ - INFO - PROGRESS: Processing iPhone SE (16/17)
+2025-08-05 16:16:03,498 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: iPhone SE
+2025-08-05 16:16:03,498 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: iPhone SE
+2025-08-05 16:16:03,498 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:16:03,499 - scrapers.powerbuy_scraper - INFO - Performing search for: iPhone SE
+2025-08-05 16:16:03,499 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:16:03,506 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:16:03,676 - scrapers.powerbuy_scraper - INFO - Search submitted for: iPhone SE
+2025-08-05 16:16:03,676 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:16:03,678 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/Asus%20ROG%20Phone%209%20Pro
+2025-08-05 16:16:03,678 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:16:04,756 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,768 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,779 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,795 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,807 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,822 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,838 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,847 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,860 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,874 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,885 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,895 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,907 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,921 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,936 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,949 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,964 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:04,977 - scrapers.powerbuy_scraper - INFO - Intercepted 50 products from API response
+2025-08-05 16:16:10,940 - scrapers.powerbuy_scraper - INFO - Validation passed: 50/50 products have required fields
+2025-08-05 16:16:10,947 - scrapers.powerbuy_scraper - INFO - Saved 50 products to: raw_data\search_results\iPhone SE_20250805_161610.json
+2025-08-05 16:16:10,948 - scrapers.powerbuy_scraper - INFO - Successfully collected data for: iPhone SE
+2025-08-05 16:16:12,948 - scrapers.powerbuy_scraper - INFO - Processing search term 17/17: samsung galaxy a13
+2025-08-05 16:16:12,949 - __main__ - INFO - PROGRESS: Processing samsung galaxy a13 (17/17)
+2025-08-05 16:16:12,949 - scrapers.powerbuy_scraper - INFO - Search attempt 1/3 for: samsung galaxy a13
+2025-08-05 16:16:12,949 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: samsung galaxy a13
+2025-08-05 16:16:12,949 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:16:12,950 - scrapers.powerbuy_scraper - INFO - Performing search for: samsung galaxy a13
+2025-08-05 16:16:12,950 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:16:12,955 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:16:13,061 - scrapers.powerbuy_scraper - INFO - Search submitted for: samsung galaxy a13
+2025-08-05 16:16:13,061 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:16:13,063 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/iPhone%20SE
+2025-08-05 16:16:13,063 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:16:19,436 - scrapers.powerbuy_scraper - WARNING - No product data found for search term: samsung galaxy a13
+2025-08-05 16:16:19,436 - scrapers.powerbuy_scraper - WARNING - No data collected for: samsung galaxy a13 (attempt 1)
+2025-08-05 16:16:19,436 - scrapers.powerbuy_scraper - INFO - Search attempt 2/3 for: samsung galaxy a13
+2025-08-05 16:16:19,437 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: samsung galaxy a13
+2025-08-05 16:16:19,437 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:16:19,437 - scrapers.powerbuy_scraper - INFO - Performing search for: samsung galaxy a13
+2025-08-05 16:16:19,437 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:16:19,440 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:16:19,504 - scrapers.powerbuy_scraper - INFO - Search submitted for: samsung galaxy a13
+2025-08-05 16:16:19,505 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:16:19,507 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/samsung%20galaxy%20a13
+2025-08-05 16:16:19,507 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:16:25,270 - scrapers.powerbuy_scraper - WARNING - No product data found for search term: samsung galaxy a13
+2025-08-05 16:16:25,271 - scrapers.powerbuy_scraper - WARNING - No data collected for: samsung galaxy a13 (attempt 2)
+2025-08-05 16:16:25,271 - scrapers.powerbuy_scraper - INFO - Search attempt 3/3 for: samsung galaxy a13
+2025-08-05 16:16:25,271 - scrapers.powerbuy_scraper - INFO - Setting up API interception for search term: samsung galaxy a13
+2025-08-05 16:16:25,271 - scrapers.powerbuy_scraper - INFO - API interception handler attached
+2025-08-05 16:16:25,271 - scrapers.powerbuy_scraper - INFO - Performing search for: samsung galaxy a13
+2025-08-05 16:16:25,272 - scrapers.powerbuy_scraper - INFO - Looking for search input element
+2025-08-05 16:16:25,275 - scrapers.powerbuy_scraper - INFO - Found search element with selector: input[placeholder*='ค้นหา']
+2025-08-05 16:16:25,326 - scrapers.powerbuy_scraper - INFO - Search submitted for: samsung galaxy a13
+2025-08-05 16:16:25,327 - scrapers.powerbuy_scraper - INFO - Waiting for search results page to load
+2025-08-05 16:16:25,328 - scrapers.powerbuy_scraper - INFO - Successfully navigated to search results: https://www.powerbuy.co.th/search/samsung%20galaxy%20a13
+2025-08-05 16:16:25,328 - scrapers.powerbuy_scraper - INFO - Waiting for network to be idle
+2025-08-05 16:16:31,098 - scrapers.powerbuy_scraper - WARNING - No product data found for search term: samsung galaxy a13
+2025-08-05 16:16:31,098 - scrapers.powerbuy_scraper - WARNING - No data collected for: samsung galaxy a13 (attempt 3)
+2025-08-05 16:16:31,099 - scrapers.powerbuy_scraper - ERROR - Failed to collect data for 'samsung galaxy a13' after 3 attempts
+2025-08-05 16:16:31,458 - scrapers.powerbuy_scraper - INFO - Collection completed. Successfully processed 15 out of 17 search terms
+2025-08-05 16:16:31,458 - __main__ - INFO - PROGRESS: Collection completed: 15/17 successful
+2025-08-05 16:16:31,460 - __main__ - INFO - Collection summary saved to: raw_data\metadata\collection_summary_20250805_161631.json
+2025-08-05 16:16:31,463 - __main__ - INFO - Manual collection process completed successfully

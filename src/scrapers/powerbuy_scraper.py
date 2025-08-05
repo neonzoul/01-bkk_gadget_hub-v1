@@ -42,8 +42,9 @@ class PowerBuyScraperCore:
         self.user_data_dir = Path("user_data")
         
         # Timeout settings
-        self.page_timeout = config.get('scraping', {}).get('page_timeout', 60000)
-        self.network_timeout = config.get('scraping', {}).get('network_timeout', 30000)
+        self.page_timeout = config.get('scraping', {}).get('page_timeout', 90000)
+        self.network_timeout = config.get('scraping', {}).get('network_timeout', 60000)
+        self.max_retries = config.get('scraping', {}).get('max_retries', 3)
         
         # Setup logging
         self.logger = logging.getLogger(__name__)
@@ -87,12 +88,30 @@ class PowerBuyScraperCore:
         """
         self.logger.info("Navigating to PowerBuy homepage")
         
-        # Navigate to homepage with timeout
-        page.goto(f"{self.base_url}/th", timeout=self.page_timeout)
-        
-        # Wait for page to fully load (critical for dynamic content)
-        page.wait_for_load_state("networkidle", timeout=self.network_timeout)
-        time.sleep(2)  # Additional buffer for async operations
+        # Retry navigation with exponential backoff
+        for attempt in range(self.max_retries):
+            try:
+                self.logger.info(f"Navigation attempt {attempt + 1}/{self.max_retries}")
+                
+                # Navigate to homepage with timeout
+                page.goto(f"{self.base_url}/th", timeout=self.page_timeout)
+                
+                # Wait for page to fully load (critical for dynamic content)
+                page.wait_for_load_state("networkidle", timeout=self.network_timeout)
+                time.sleep(2)  # Additional buffer for async operations
+                
+                self.logger.info("Successfully navigated to PowerBuy homepage")
+                break
+                
+            except PlaywrightTimeoutError as e:
+                self.logger.warning(f"Navigation attempt {attempt + 1} failed: {str(e)}")
+                if attempt == self.max_retries - 1:
+                    raise Exception(f"Failed to navigate to homepage after {self.max_retries} attempts")
+                
+                # Wait before retry with exponential backoff
+                wait_time = 2 ** attempt
+                self.logger.info(f"Waiting {wait_time} seconds before retry...")
+                time.sleep(wait_time)
         
         # Handle cookie banner if present (from POC experience)
         try:
@@ -494,17 +513,35 @@ class ManualCollector:
                     if self.progress_callback:
                         self.progress_callback(f"Processing {search_term} ({i}/{len(search_terms)})")
                     
-                    try:
-                        file_path = self._collect_single_search_term(page, search_term)
-                        if file_path:
-                            results[search_term] = file_path
-                            self.logger.info(f"Successfully collected data for: {search_term}")
-                        else:
-                            self.logger.warning(f"No data collected for: {search_term}")
+                    # Retry logic for individual search terms
+                    success = False
+                    for attempt in range(self.scraper_core.max_retries):
+                        try:
+                            self.logger.info(f"Search attempt {attempt + 1}/{self.scraper_core.max_retries} for: {search_term}")
                             
-                    except Exception as e:
-                        self.logger.error(f"Failed to collect data for '{search_term}': {str(e)}")
-                        continue
+                            file_path = self._collect_single_search_term(page, search_term)
+                            if file_path:
+                                results[search_term] = file_path
+                                self.logger.info(f"Successfully collected data for: {search_term}")
+                                success = True
+                                break
+                            else:
+                                self.logger.warning(f"No data collected for: {search_term} (attempt {attempt + 1})")
+                                
+                        except Exception as e:
+                            self.logger.error(f"Attempt {attempt + 1} failed for '{search_term}': {str(e)}")
+                            if attempt < self.scraper_core.max_retries - 1:
+                                wait_time = 2 ** attempt
+                                self.logger.info(f"Waiting {wait_time} seconds before retry...")
+                                time.sleep(wait_time)
+                            continue
+                    
+                    if not success:
+                        self.logger.error(f"Failed to collect data for '{search_term}' after {self.scraper_core.max_retries} attempts")
+                        
+                    # Small delay between search terms to avoid rate limiting
+                    if i < len(search_terms):
+                        time.sleep(2)
                         
             except Exception as e:
                 self.logger.error(f"Critical error during collection: {str(e)}")
