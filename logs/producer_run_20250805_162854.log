@@ -1,0 +1,141 @@
+2025-08-05 16:28:54,105 - src.producers.data_producer - INFO - DataProducer initialized - Input: raw_data/search_results, Output: output
+2025-08-05 16:28:54,105 - __main__ - INFO - Starting complete dataset processing
+2025-08-05 16:28:54,105 - __main__ - INFO - Step 1: Aggregating raw data from multiple directories
+2025-08-05 16:28:54,105 - __main__ - INFO - Processing directory: raw_data/search_results
+2025-08-05 16:28:54,105 - src.producers.data_producer - INFO - Loading raw data from directory: raw_data/search_results
+2025-08-05 16:28:54,106 - src.producers.data_producer - INFO - Found 19 JSON files to process
+2025-08-05 16:28:54,280 - src.producers.data_producer - INFO - File loading completed: 19/19 files successful (100.0%)
+2025-08-05 16:28:54,280 - __main__ - INFO - Loaded 19 files from raw_data/search_results
+2025-08-05 16:28:54,281 - __main__ - INFO - Processing directory: raw_data/search_results/2025-07-30
+2025-08-05 16:28:54,281 - src.producers.data_producer - INFO - Loading raw data from directory: raw_data/search_results/2025-07-30
+2025-08-05 16:28:54,281 - src.producers.data_producer - INFO - Found 14 JSON files to process
+2025-08-05 16:28:54,295 - src.producers.data_producer - INFO - File loading completed: 33/14 files successful (235.7%)
+2025-08-05 16:28:54,295 - __main__ - INFO - Loaded 14 files from raw_data/search_results/2025-07-30
+2025-08-05 16:28:54,295 - __main__ - INFO - Processing directory: raw_data/search_results/2025-07-31
+2025-08-05 16:28:54,295 - src.producers.data_producer - INFO - Loading raw data from directory: raw_data/search_results/2025-07-31
+2025-08-05 16:28:54,295 - src.producers.data_producer - INFO - Found 3 JSON files to process
+2025-08-05 16:28:54,297 - src.producers.data_producer - INFO - File loading completed: 36/3 files successful (1200.0%)
+2025-08-05 16:28:54,297 - __main__ - INFO - Loaded 3 files from raw_data/search_results/2025-07-31
+2025-08-05 16:28:54,297 - __main__ - INFO - Total raw data files aggregated: 36
+2025-08-05 16:28:54,297 - __main__ - INFO - Step 2: Extracting products from aggregated data
+2025-08-05 16:28:54,297 - src.producers.data_producer - INFO - Processing 36 raw data files
+2025-08-05 16:28:54,297 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Apple iPhone 16_20250805_161532.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,297 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Apple iPhone 16_20250805_161532.json
+2025-08-05 16:28:54,298 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Apple iPhone 16_20250805_161532.json
+2025-08-05 16:28:54,298 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Asus ROG Phone 9 Pro_20250805_161601.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,298 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Asus ROG Phone 9 Pro_20250805_161601.json
+2025-08-05 16:28:54,298 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Asus ROG Phone 9 Pro_20250805_161601.json
+2025-08-05 16:28:54,298 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Google Pixel 9 Pro XL_20250805_161434.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,298 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Google Pixel 9 Pro XL_20250805_161434.json
+2025-08-05 16:28:54,298 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Google Pixel 9 Pro XL_20250805_161434.json
+2025-08-05 16:28:54,299 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Google Pixel 9 Pro_20250805_161424.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,299 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Google Pixel 9 Pro_20250805_161424.json
+2025-08-05 16:28:54,299 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Google Pixel 9 Pro_20250805_161424.json
+2025-08-05 16:28:54,299 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Google Pixel 9a_20250805_161414.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,299 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Google Pixel 9a_20250805_161414.json
+2025-08-05 16:28:54,299 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Google Pixel 9a_20250805_161414.json
+2025-08-05 16:28:54,299 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\iPhone 16 Pro Max_20250805_161345.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,300 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\iPhone 16 Pro Max_20250805_161345.json
+2025-08-05 16:28:54,300 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\iPhone 16 Pro Max_20250805_161345.json
+2025-08-05 16:28:54,300 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\iPhone SE_20250805_161610.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,300 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\iPhone SE_20250805_161610.json
+2025-08-05 16:28:54,300 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\iPhone SE_20250805_161610.json
+2025-08-05 16:28:54,300 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Motorola Razr 60 Ultra_20250805_161452.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,300 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Motorola Razr 60 Ultra_20250805_161452.json
+2025-08-05 16:28:54,301 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Motorola Razr 60 Ultra_20250805_161452.json
+2025-08-05 16:28:54,301 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\OnePlus 13_20250805_161355.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,301 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\OnePlus 13_20250805_161355.json
+2025-08-05 16:28:54,301 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\OnePlus 13_20250805_161355.json
+2025-08-05 16:28:54,305 - src.parsers.powerbuy_parser - INFO - Successfully extracted 50 products from raw_data\search_results\poc_integration_test.json
+2025-08-05 16:28:54,305 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Samsung Galaxy S25 Plus_20250805_161551.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,305 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Samsung Galaxy S25 Plus_20250805_161551.json
+2025-08-05 16:28:54,306 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Samsung Galaxy S25 Plus_20250805_161551.json
+2025-08-05 16:28:54,306 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Samsung Galaxy S25 Ultra_20250805_161335.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,306 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Samsung Galaxy S25 Ultra_20250805_161335.json
+2025-08-05 16:28:54,306 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Samsung Galaxy S25 Ultra_20250805_161335.json
+2025-08-05 16:28:54,306 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Samsung Galaxy S25_20250805_161405.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,306 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Samsung Galaxy S25_20250805_161405.json
+2025-08-05 16:28:54,306 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Samsung Galaxy S25_20250805_161405.json
+2025-08-05 16:28:54,307 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Samsung Galaxy Z Flip 7_20250805_161542.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,307 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Samsung Galaxy Z Flip 7_20250805_161542.json
+2025-08-05 16:28:54,307 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Samsung Galaxy Z Flip 7_20250805_161542.json
+2025-08-05 16:28:54,307 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Samsung Galaxy Z Fold 7_20250805_161442.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,307 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Samsung Galaxy Z Fold 7_20250805_161442.json
+2025-08-05 16:28:54,307 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Samsung Galaxy Z Fold 7_20250805_161442.json
+2025-08-05 16:28:54,308 - src.parsers.powerbuy_parser - INFO - Successfully extracted 50 products from raw_data\search_results\samsung_2025-07-30_14-16-45.json
+2025-08-05 16:28:54,309 - src.parsers.powerbuy_parser - INFO - Successfully extracted 48 products from raw_data\search_results\test_iphone_data.json
+2025-08-05 16:28:54,309 - src.parsers.powerbuy_parser - INFO - Successfully extracted 3 products from raw_data\search_results\test_samsung_data.json
+2025-08-05 16:28:54,309 - src.parsers.powerbuy_parser - WARNING - Unrecognized JSON structure in raw_data\search_results\Xiaomi 15 Ultra_20250805_161502.json: ['raw_product_data', 'collection_timestamp', 'collection_metadata', '_source_file', '_processed_at', '_file_size']
+2025-08-05 16:28:54,309 - src.parsers.powerbuy_parser - INFO - Successfully extracted 0 products from raw_data\search_results\Xiaomi 15 Ultra_20250805_161502.json
+2025-08-05 16:28:54,310 - src.producers.data_producer - WARNING - No products found in raw_data\search_results\Xiaomi 15 Ultra_20250805_161502.json
+2025-08-05 16:28:54,310 - src.parsers.powerbuy_parser - INFO - Successfully extracted 8 products from raw_data\search_results\2025-07-30\iPad_Pro_2025-07-30_15-00-01.json
+2025-08-05 16:28:54,310 - src.parsers.powerbuy_parser - INFO - Successfully extracted 8 products from raw_data\search_results\2025-07-30\iPad_Pro_2025-07-30_15-09-38.json
+2025-08-05 16:28:54,310 - src.parsers.powerbuy_parser - INFO - Successfully extracted 8 products from raw_data\search_results\2025-07-30\iPad_Pro_2025-07-30_15-10-22.json
+2025-08-05 16:28:54,311 - src.parsers.powerbuy_parser - INFO - Successfully extracted 6 products from raw_data\search_results\2025-07-30\iPhone_15_2025-07-30_15-00-01.json
+2025-08-05 16:28:54,311 - src.parsers.powerbuy_parser - INFO - Successfully extracted 6 products from raw_data\search_results\2025-07-30\iPhone_15_2025-07-30_15-09-38.json
+2025-08-05 16:28:54,311 - src.parsers.powerbuy_parser - INFO - Successfully extracted 6 products from raw_data\search_results\2025-07-30\iPhone_15_2025-07-30_15-10-22.json
+2025-08-05 16:28:54,312 - src.parsers.powerbuy_parser - INFO - Successfully extracted 50 products from raw_data\search_results\2025-07-30\iPhone_15_20250730_144220_2025-07-30_14-42-46.json
+2025-08-05 16:28:54,312 - src.parsers.powerbuy_parser - INFO - Successfully extracted 7 products from raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_2025-07-30_15-00-01.json
+2025-08-05 16:28:54,312 - src.parsers.powerbuy_parser - INFO - Successfully extracted 7 products from raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_2025-07-30_15-09-38.json
+2025-08-05 16:28:54,313 - src.parsers.powerbuy_parser - INFO - Successfully extracted 7 products from raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_2025-07-30_15-10-22.json
+2025-08-05 16:28:54,313 - src.parsers.powerbuy_parser - INFO - Successfully extracted 30 products from raw_data\search_results\2025-07-30\Samsung_Galaxy_S24_20250730_144220_2025-07-30_14-42-53.json
+2025-08-05 16:28:54,313 - src.parsers.powerbuy_parser - INFO - Successfully extracted 2 products from raw_data\search_results\2025-07-30\test_iphone_test_session_001_2025-07-30_14-39-55.json
+2025-08-05 16:28:54,314 - src.parsers.powerbuy_parser - INFO - Successfully extracted 1 products from raw_data\search_results\2025-07-30\test_metadata_iphone_test_metadata_20250730_144200_2025-07-30_14-42-00.json
+2025-08-05 16:28:54,314 - src.parsers.powerbuy_parser - INFO - Successfully extracted 1 products from raw_data\search_results\2025-07-30\test_naming_test_session_naming_2025-07-30_14-42-00.json
+2025-08-05 16:28:54,314 - src.parsers.powerbuy_parser - INFO - Successfully extracted 8 products from raw_data\search_results\2025-07-31\iPad_Pro_2025-07-31_10-13-54.json
+2025-08-05 16:28:54,314 - src.parsers.powerbuy_parser - INFO - Successfully extracted 6 products from raw_data\search_results\2025-07-31\iPhone_15_2025-07-31_10-13-54.json
+2025-08-05 16:28:54,314 - src.parsers.powerbuy_parser - INFO - Successfully extracted 7 products from raw_data\search_results\2025-07-31\Samsung_Galaxy_S24_2025-07-31_10-13-54.json
+2025-08-05 16:28:54,315 - src.producers.data_producer - INFO - Product extraction completed:
+2025-08-05 16:28:54,315 - src.producers.data_producer - INFO -   - Total products extracted: 319
+2025-08-05 16:28:54,315 - src.producers.data_producer - INFO -   - Extraction success rate: 100.0%
+2025-08-05 16:28:54,315 - src.producers.data_producer - INFO -   - Files with errors: 0
+2025-08-05 16:28:54,315 - __main__ - INFO - Step 3: Validating extracted product data
+2025-08-05 16:28:54,315 - src.producers.data_producer - INFO - Validating 319 raw products
+2025-08-05 16:28:54,315 - src.parsers.powerbuy_parser - INFO - Transforming 319 raw products to validated data
+2025-08-05 16:28:54,327 - src.parsers.powerbuy_parser - WARNING - Transformation failed for product TEST001: Price parsing failed for SKU TEST001: Price is None
+2025-08-05 16:28:54,327 - src.parsers.powerbuy_parser - WARNING - Transformation failed for product TEST: Price parsing failed for SKU TEST: Price is None
+2025-08-05 16:28:54,328 - src.parsers.powerbuy_parser - INFO - Transformation completed: 317 successful (99.4%)
+2025-08-05 16:28:54,328 - src.producers.data_producer - INFO - Data validation completed:
+2025-08-05 16:28:54,328 - src.producers.data_producer - INFO -   - Successfully validated: 317 products
+2025-08-05 16:28:54,329 - src.producers.data_producer - INFO -   - Validation success rate: 99.4%
+2025-08-05 16:28:54,329 - src.producers.data_producer - INFO -   - Validation failures: 2
+2025-08-05 16:28:54,329 - __main__ - INFO - Step 4: Deduplicating products
+2025-08-05 16:28:54,329 - __main__ - INFO - Starting deduplication process for 317 products
+2025-08-05 16:28:54,330 - __main__ - INFO - Deduplication completed:
+2025-08-05 16:28:54,330 - __main__ - INFO -   - Products before: 317
+2025-08-05 16:28:54,330 - __main__ - INFO -   - Products after: 188
+2025-08-05 16:28:54,330 - __main__ - INFO -   - Duplicates removed: 129
+2025-08-05 16:28:54,330 - __main__ - INFO - Step 5: Exporting to CSV
+2025-08-05 16:28:54,330 - src.producers.data_producer - INFO - Exporting 188 products to CSV: output\competitor_prices_complete_2025-08-05.csv
+2025-08-05 16:28:54,353 - src.producers.data_producer - INFO - CSV export completed successfully: output\competitor_prices_complete_2025-08-05.csv
+2025-08-05 16:28:54,353 - __main__ - INFO - ============================================================
+2025-08-05 16:28:54,353 - __main__ - INFO - COMPLETE DATASET PROCESSING SUMMARY
+2025-08-05 16:28:54,354 - __main__ - INFO - ============================================================
+2025-08-05 16:28:54,354 - __main__ - INFO - File Processing:
+2025-08-05 16:28:54,354 - __main__ - INFO -   - Files processed: 36
+2025-08-05 16:28:54,354 - __main__ - INFO -   - Files failed: 0
+2025-08-05 16:28:54,354 - __main__ - INFO -   - File success rate: 100.0%
+2025-08-05 16:28:54,354 - __main__ - INFO - Product Extraction:
+2025-08-05 16:28:54,354 - __main__ - INFO -   - Products extracted: 319
+2025-08-05 16:28:54,355 - __main__ - INFO -   - Extraction errors: 0
+2025-08-05 16:28:54,355 - __main__ - INFO - Data Validation:
+2025-08-05 16:28:54,355 - __main__ - INFO -   - Successful validations: 317
+2025-08-05 16:28:54,355 - __main__ - INFO -   - Validation failures: 2
+2025-08-05 16:28:54,355 - __main__ - INFO -   - Validation success rate: 99.4%
+2025-08-05 16:28:54,355 - __main__ - INFO - Deduplication:
+2025-08-05 16:28:54,355 - __main__ - INFO -   - Products before dedup: 317
+2025-08-05 16:28:54,355 - __main__ - INFO -   - Products after dedup: 188
+2025-08-05 16:28:54,355 - __main__ - INFO -   - Duplicates removed: 129
+2025-08-05 16:28:54,356 - __main__ - INFO -   - Dedup criteria: SKU, Product Name
+2025-08-05 16:28:54,356 - __main__ - INFO - Final Output:
+2025-08-05 16:28:54,356 - __main__ - INFO -   - Output file: output\competitor_prices_complete_2025-08-05.csv
+2025-08-05 16:28:54,356 - __main__ - INFO -   - Final product count: 188
+2025-08-05 16:28:54,356 - __main__ - INFO -   - File size: 23.3 KB
+2025-08-05 16:28:54,356 - __main__ - WARNING - Total errors encountered: 2
+2025-08-05 16:28:54,356 - __main__ - WARNING - Recent errors:
+2025-08-05 16:28:54,356 - __main__ - WARNING -   - Transformation failed for product TEST001: Price parsing failed for SKU TEST001: Price is None
+2025-08-05 16:28:54,357 - __main__ - WARNING -   - Transformation failed for product TEST: Price parsing failed for SKU TEST: Price is None
+2025-08-05 16:28:54,357 - __main__ - INFO - Total warnings: 15
+2025-08-05 16:28:54,357 - __main__ - INFO - ============================================================
+2025-08-05 16:28:54,357 - __main__ - INFO - Complete dataset processing finished successfully
+2025-08-05 16:28:54,357 - __main__ - INFO - Output file: output\competitor_prices_complete_2025-08-05.csv
