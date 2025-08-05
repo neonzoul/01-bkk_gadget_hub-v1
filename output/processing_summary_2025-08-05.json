@@ -1,0 +1,41 @@
+{
+  "generation_date": "2025-08-05T16:41:23.984836",
+  "final_csv_file": "competitor_prices_2025-08-05.csv",
+  "processing_summary": {
+    "total_files_processed": 36,
+    "total_products_extracted": 319,
+    "successful_validations": 317,
+    "validation_failures": 2,
+    "duplicates_removed": 129,
+    "final_product_count": 188
+  },
+  "data_quality": {
+    "validation_success_rate": "99.4%",
+    "deduplication_rate": "40.7%",
+    "final_success_rate": "58.9%"
+  },
+  "stock_distribution": {
+    "in_stock": 13,
+    "out_of_stock": 175,
+    "in_stock_percentage": "6.9%"
+  },
+  "price_statistics": {
+    "min_price_thb": "144.00",
+    "max_price_thb": "119990.00",
+    "average_price_thb": "17048.28",
+    "median_price_thb": "10490.00"
+  },
+  "file_info": {
+    "file_size_kb": "21.6",
+    "encoding": "UTF-8",
+    "columns": [
+      "Name",
+      "SKU",
+      "Price",
+      "Stock Status",
+      "Source",
+      "Price_Numeric"
+    ],
+    "total_rows": 188
+  }
+}
